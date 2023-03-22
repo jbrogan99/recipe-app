@@ -1,0 +1,153 @@
+body {
+  margin: 0 !important;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+:root {
+  --basic-green: #6ea743;
+  --pastel-brown: #f8f3e3;
+  --sans-font: "Work Sans", sans-serif;
+  --inter-font: "Inter", sans-serif;
+}
+.inter-font {
+  font-family: "Inter", sans-serif;
+}
+
+.work-sans-font {
+  font-family: "Work Sans", sans-serif;
+}
+
+.pastel-background {
+  background-color: var(--pastel-brown);
+}
+
+/*Nav*/
+.nutrition-logo {
+  color: var(--basic-green);
+  font-family: "Imbue", serif;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+}
+
+.mobile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.hamburger-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*End of Nav*/
+/*banner*/
+
+.banner img {
+  height: 15em;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner {
+  position: relative;
+}
+
+.white {
+  color: white;
+}
+
+#banner-text1 {
+  position: absolute;
+  left: 42%;
+  top: 0%;
+}
+#banner-text2 {
+  position: absolute;
+  left: 42%;
+  top: 50%;
+}
+
+.banner p {
+  margin-right: 1em;
+}
+
+#banner-text1 span {
+  color: var(--basic-green);
+}
+/*end of banner*/
+
+/*carousel*/
+
+.carousel {
+  display: flex;
+}
+.carousel-header {
+  display: flex;
+  justify-content: center;
+}
+/*end of carousel*/
+
+/*recipe finder */
+
+.recipe-container {
+  margin: 0 1em 1em 1em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 1em 1em 2em 1em;
+  background-color: white;
+  font-family: var(--sans-font);
+}
+
+.recipe-container .center {
+  text-align: center;
+}
+
+.title::after {
+  content: attr(data-text);
+
+  color: #6ea743;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.side-by-side img {
+  width: calc(50% + 1em);
+}
+
+.recipe-finder-container {
+  padding-top: 1em;
+}
+
+.explore {
+  background-color: white;
+  border: 2px solid var(--basic-green);
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #6ea743;
+}
+
+.explore::after {
+  content: " >";
+  color: #6ea743;
+}
+
+/*end of recipe finder*/
