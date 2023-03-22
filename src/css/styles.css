@@ -125,15 +125,18 @@ p {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center;
+  gap: 5px;
 }
 
 .side-by-side img {
-  width: calc(50% + 1em);
+  width: 50%;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .recipe-finder-container {
-  padding-top: 1em;
+  padding: 1em 0 1em 0;
 }
 
 .explore {
