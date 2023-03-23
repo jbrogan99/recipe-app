@@ -12,10 +12,10 @@ export const RecipeFinder = ({
 }) => {
   return (
     <section className="recipe-container">
-      <h2 data-text={lastLetter} className="center title">
+      <h2 data-text={lastLetter} className="title">
         {title}
       </h2>
-      <p className="center slogan">{slogan}</p>
+      <p className="slogan">{slogan}</p>
       <div className="side-by-side">
         <img src={url1} alt={alt1} />
         <img src={url2} alt={alt2} />

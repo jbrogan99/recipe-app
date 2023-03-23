@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import banner from "../../images/green.jpg";
-import { RecipeFinder } from "../../recipie-finder";
-import beanChilliWrap from "../../images/bean_and_rice_burrito_33565_16x9.jpg";
-import pork from "../../images/chilli-pork.jpg";
-import soup from "../../images/soup-min.jpg";
-import salad from "../../images/salad.jpg";
-import pasta1 from "../../images/healthy-pasta-recipes.jpeg";
-import pasta2 from "../../images/healthy-pasta.jpg";
-import burger from "../../images/hamburger-food.jpg";
-import carbonara from "../../images/carbonara.jpg";
+import banner from "../images/green.jpg";
+import { RecipeFinder } from "../recipie-finder";
+import beanChilliWrap from "../images/bean_and_rice_burrito_33565_16x9.jpg";
+import pork from "../images/chilli-pork.jpg";
+import soup from "../images/soup-min.jpg";
+import salad from "../images/salad.jpg";
+import pasta1 from "../images/healthy-pasta-recipes.jpeg";
+import pasta2 from "../images/healthy-pasta.jpg";
+import burger from "../images/hamburger-food.jpg";
+import carbonara from "../images/carbonara.jpg";
 export const Home = () => {
   const handleDragStart = (e) => e.preventDefault();
   const items = [

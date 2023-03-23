@@ -52,6 +52,47 @@ p {
   justify-content: flex-end;
 }
 
+nav li {
+  list-style-type: none;
+
+  font-family: var(--sans-font);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+nav li a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+ul li:first-child {
+  color: var(--basic-green);
+  font-size: 1.7rem;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.meal-types {
+  grid-column: 1/2;
+}
+
+.pages {
+  grid-column: 2/3;
+}
+
+.active-nav a {
+  color: #6ea743 !important;
+}
+
 /*End of Nav*/
 /*banner*/
 
@@ -111,13 +152,13 @@ p {
   font-family: var(--sans-font);
 }
 
-.recipe-container .center {
+.recipe-container h2 {
   text-align: center;
+  font-family: "Work Sans", sans-serif;
 }
 
 .title::after {
   content: attr(data-text);
-
   color: #6ea743;
 }
 
@@ -154,3 +195,67 @@ p {
 }
 
 /*end of recipe finder*/
+
+/*title/slogan/cartoon*/
+.bubble-text-container p {
+  font-size: 1rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  max-width: 50%;
+  justify-self: center;
+  align-self: center;
+  height: 65%;
+  font-family: var(--sans-font);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.top-info-container {
+  margin: 0 2em 0 2em;
+}
+
+.bubble-text-container img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+}
+
+.flex-container-bubble {
+  display: flex;
+}
+
+.bubble-text-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.cartoon-all-container img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 10em;
+}
+
+.cartoon {
+  margin-right: 13em;
+}
+
+.cartoon-all-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.title-slogan-container h2 {
+  color: var(--basic-green);
+  font-family: "Slabo 13px", serif;
+  text-align: center;
+}
+
+.title-slogan-container p {
+  font-family: var(--sans-font);
+  font-weight: 600;
+}
+/*end of title/slogan/cartoon*/
+
+/*hungover*/

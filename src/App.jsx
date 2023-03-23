@@ -1,18 +1,52 @@
+import React, { useState } from "react";
+
 import { Nav } from "./navigation/nav";
-import { Home } from "./pages/home/home";
+import { Home } from "./pages/home";
 import { Hamburger } from "./navigation/hamburger";
 import { Logo } from "./logo/logo";
-
 import "./css/styles.css";
 import "./fonts/fonts.css";
+import { NavHeadings } from "./navigation/navHeadings";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Hungover } from "./pages/hungover";
+import { Travel } from "./pages/travel";
+import { Weather } from "./pages/weather";
+import { Work } from "./pages/work";
+
 function App() {
+  const [showResults, setShowResults] = useState(false);
+  const [activePage, setActivePage] = useState("home");
   return (
     <>
-      <header className="mobile-header">
-        <Logo width="100vw" height="100vh" />
-        <Hamburger />
-      </header>
-      <Home />
+      <Router>
+        <header>
+          <div className="mobile-header">
+            <Logo width="100vw" height="100vh" />
+            <Hamburger
+              setShowResults={setShowResults}
+              showResults={showResults}
+            />
+          </div>
+          <NavHeadings
+            showResults={showResults}
+            activePage={activePage}
+            setActivePage={setActivePage}
+            setShowResults={setShowResults}
+          />
+        </header>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home activePage={activePage} setActivePage={setActivePage} />
+            }
+          />
+          <Route path="/hungover" element={<Hungover />} />
+          <Route path="/travel" element={<Travel />} />
+          <Route path="/weather" element={<Weather />} />
+          <Route path="/work" element={<Work />} />
+        </Routes>
+      </Router>
     </>
   );
 }
