@@ -22,19 +22,6 @@ export const Home = () => {
     <img src={banner} onDragStart={handleDragStart} alt="presentation" />,
   ];
 
-  // useEffect(() => {
-  //   const url =
-  //     "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=1096058,1095895,157399,636769,642619,715497";
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch(() => {
-  //       console.log("error");
-  //     });
-  // });
-
-  const [meal, setMeal] = useState(null);
-
   return (
     <>
       <section className="banner">

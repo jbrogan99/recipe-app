@@ -258,4 +258,43 @@ nav {
 }
 /*end of title/slogan/cartoon*/
 
-/*hungover*/
+/*main content for types of meal pages */
+
+.vegan,
+.vegetarian {
+  width: 3em;
+  height: 3em;
+}
+
+.meal-data-container:first-child {
+  width: 8em;
+  height: 8em;
+}
+
+.meal-data-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.meal-title {
+  grid-column: 2/4;
+  grid-row: 1/2;
+}
+
+.meal-image {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.meal-info {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.meal-data-container button {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+/*main content for types of meal pages */

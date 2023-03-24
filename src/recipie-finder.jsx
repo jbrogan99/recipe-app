@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./components/button";
 
 export const RecipeFinder = ({
   title,
@@ -21,9 +22,7 @@ export const RecipeFinder = ({
         <img src={url2} alt={alt2} />
       </div>
       <p>{info}</p>
-      <a href="#" className="explore">
-        Explore
-      </a>
+      <Button text="explore"></Button>
     </section>
   );
 };
