@@ -187,6 +187,7 @@ nav {
   border-radius: 25px;
   text-decoration: none;
   color: #6ea743;
+  height: fit-content;
 }
 
 .explore::after {
@@ -274,20 +275,51 @@ nav {
 .meal-data-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  margin: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  padding: 0.5em;
+  gap: 0.4em;
+}
+
+.button-container-meals {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1em;
+}
+
+.main-meals-container {
+  background-color: var(--pastel-brown);
+  padding: 1em 0 1em 0;
+}
+
+.meal-data-container h3 {
+  color: var(--basic-green);
+  font-size: 1.5rem;
+  font-family: var(--sans-font);
+  margin: 0;
 }
 
 .meal-title {
-  grid-column: 2/4;
+  grid-column: 3/4;
   grid-row: 1/2;
 }
 
 .meal-image {
-  grid-column: 1/2;
-  grid-row: 1/3;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  object-fit: cover;
+  width: 100%;
+  height: 10em;
 }
 
 .meal-info {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.meal-nutrition {
   grid-column: 2/3;
   grid-row: 2/3;
 }
@@ -295,6 +327,17 @@ nav {
 .meal-data-container button {
   grid-column: 3/4;
   grid-row: 2/3;
+}
+
+.vegan-image,
+.vegetarian-image {
+  height: 3em;
+  width: 3em;
+}
+.meal-data-container p {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--sans-font);
 }
 
 /*main content for types of meal pages */

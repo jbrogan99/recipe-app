@@ -27,7 +27,7 @@ export const Hungover = () => {
           text={arr}
         />
       </section>
-      <main>
+      <main className="main-meals-container">
         <MealList />
       </main>
     </>
