@@ -22,27 +22,20 @@ export const NavHeadings = ({
                 Hungover
               </Link>
             </li>
+
+            <li className={`${activePage === "weather" ? "active-nav" : ""}`}>
+              {" "}
+              <Link to="/weather" onClick={() => handleClick("weather")}>
+                Food for Weather
+              </Link>
+            </li>
             <li className={`${activePage === "work" ? "active-nav" : ""}`}>
               {" "}
               <Link to="/work" onClick={() => handleClick("work")}>
                 Food for Work
               </Link>
             </li>
-            <li
-              className={`${
-                activePage === "weather" ? "active-nav navText" : "navText"
-              }`}
-            >
-              {" "}
-              <Link to="/weather" onClick={() => handleClick("weather")}>
-                Food for Weather
-              </Link>
-            </li>
-            <li
-              className={`${
-                activePage === "oneShop" ? "active-nav navText" : "navText"
-              }`}
-            >
+            <li className={`${activePage === "travel" ? "active-nav" : ""}`}>
               {" "}
               <Link to="/travel" onClick={() => handleClick("travel")}>
                 One Stop Shop
@@ -51,11 +44,7 @@ export const NavHeadings = ({
           </ul>
           <ul className="pages">
             <li>Pages</li>
-            <li
-              className={`${
-                activePage === "home" ? "active-nav navText" : "navText"
-              }`}
-            >
+            <li className={`${activePage === "home" ? "active-nav" : ""}`}>
               <Link to="/" onClick={() => handleClick("home")}>
                 Home
               </Link>

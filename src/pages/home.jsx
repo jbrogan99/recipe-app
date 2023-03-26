@@ -11,7 +11,7 @@ import pasta1 from "../images/healthy-pasta-recipes.jpeg";
 import pasta2 from "../images/healthy-pasta.jpg";
 import burger from "../images/hamburger-food.jpg";
 import carbonara from "../images/carbonara.jpg";
-export const Home = () => {
+export const Home = ({ setActivePage }) => {
   const handleDragStart = (e) => e.preventDefault();
   const items = [
     <div>
@@ -49,6 +49,9 @@ export const Home = () => {
           info="Enjoy some of our easy, tasty and nutritional dishes, cooks in under 10 minutes"
           alt1="bean and rice wrap"
           alt2="chilli pork"
+          setActivePage={setActivePage}
+          link="hungover"
+          pageName="hungover"
         />
         <RecipeFinder
           title="Hows the"
@@ -59,6 +62,9 @@ export const Home = () => {
           info="Whatever the weather, we’ve got the dishes you need!"
           alt1="tomato soup"
           alt2="chicken salad"
+          setActivePage={setActivePage}
+          link="weather"
+          pageName="weather"
         />
         <RecipeFinder
           title="Food for"
@@ -69,6 +75,9 @@ export const Home = () => {
           info="We have a great selection of healthy re-heatable meals for you to take into work! "
           alt1="beef pasta with sweetcorn"
           alt2="tagliatelle pasta with herbs"
+          setActivePage={setActivePage}
+          link="work"
+          pageName="work"
         />
         <RecipeFinder
           title="No Time to "
@@ -79,6 +88,9 @@ export const Home = () => {
           info="All the ingredients for the dishes can be found in any budget supermarket"
           alt1="hamburger"
           alt2="carbonara"
+          setActivePage={setActivePage}
+          link="travel"
+          pageName="travel"
         />
       </main>
     </>

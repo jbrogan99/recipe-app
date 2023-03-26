@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./components/button";
+import { Link } from "react-router-dom";
 
 export const RecipeFinder = ({
   title,
@@ -10,6 +10,9 @@ export const RecipeFinder = ({
   alt1,
   alt2,
   lastLetter,
+  link,
+  setActivePage,
+  pageName,
 }) => {
   return (
     <section className="recipe-container">
@@ -22,7 +25,13 @@ export const RecipeFinder = ({
         <img src={url2} alt={alt2} />
       </div>
       <p>{info}</p>
-      <Button text="explore"></Button>
+      <Link
+        to={link}
+        onClick={() => setActivePage(pageName)}
+        className="explore"
+      >
+        Explore
+      </Link>
     </section>
   );
 };

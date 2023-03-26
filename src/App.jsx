@@ -16,6 +16,7 @@ import { Work } from "./pages/work";
 function App() {
   const [showResults, setShowResults] = useState(false);
   const [activePage, setActivePage] = useState("home");
+  console.log("active page", activePage);
   return (
     <>
       <Router>
@@ -27,6 +28,7 @@ function App() {
               showResults={showResults}
             />
           </div>
+
           <NavHeadings
             showResults={showResults}
             activePage={activePage}
