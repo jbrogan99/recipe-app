@@ -11,17 +11,44 @@ import pasta1 from "../images/healthy-pasta-recipes.jpeg";
 import pasta2 from "../images/healthy-pasta.jpg";
 import burger from "../images/hamburger-food.jpg";
 import carbonara from "../images/carbonara.jpg";
+import { Button } from "../components/button";
+import vegetarian from "../images/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
+import vegan from "../images/vegan-icon.png";
+import protein from "../images/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
+import Loading from "../components/loading";
+import { Favorites } from "../components/favourites";
 export const Home = ({ setActivePage }) => {
-  const handleDragStart = (e) => e.preventDefault();
-  const items = [
-    <div>
-      <img src={banner} onDragStart={handleDragStart} alt="presentation" />
-      <p>Hello</p>
-    </div>,
-    <img src={banner} onDragStart={handleDragStart} alt="presentation" />,
-    <img src={banner} onDragStart={handleDragStart} alt="presentation" />,
-  ];
+  // const handleDragStart = (e) => e.preventDefault();
 
+  // // const [favoritesData, setFavoritesData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   async function fetchData(url) {
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     setFavoritesData(data);
+  //     setIsLoading(false);
+  //     console.log("favourites data", favoritesData);
+  //     console.log("favourites [0]", favoritesData[0]);
+  //     console.log("favourites image", favoritesData[0].image);
+  //     console.log("favourites title", favoritesData[0].title);
+  //   }
+  //   fetchData(
+  //     "https://api.spoonacular.com/recipes/informationBulk?apiKey=10320504da754f4a83b42468d49cb216&ids=643674,1095711,1697621,1062883&642701,1070648&includeNutrition=true"
+  //   );
+  // }, []);
+
+  function favoritesGallery() {
+    const items = [
+      <Favorites index={0} />,
+      <Favorites index={1} />,
+      <Favorites index={2} />,
+      <Favorites index={3} />,
+      <Favorites index={4} />,
+      <Favorites index={5} />,
+    ];
+    return items;
+  }
   return (
     <>
       <section className="banner">
@@ -37,7 +64,7 @@ export const Home = ({ setActivePage }) => {
         <h2 className="work-sans-font">A Few Favorites</h2>
       </div>
       <section className="carousel">
-        <AliceCarousel mouseTracking items={items} />
+        <AliceCarousel mouseTracking items={favoritesGallery()} />
       </section>
       <main className="pastel-background recipe-finder-container">
         <RecipeFinder

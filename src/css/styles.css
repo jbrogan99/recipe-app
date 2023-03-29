@@ -135,13 +135,19 @@ nav ul .active-nav a {
 
 /*carousel*/
 
-.carousel {
-  display: flex;
-}
 .carousel-header {
   display: flex;
   justify-content: center;
 }
+
+.carousel-img-container {
+  margin: 0 5% 0 5%;
+}
+
+#carousel-img-one {
+  width: 100%;
+}
+
 /*end of carousel*/
 
 /*recipe finder */
@@ -376,3 +382,105 @@ nav ul .active-nav a {
 }
 
 /*end of loading symbol*/
+
+/*hot and cold button*/
+#weather-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+#weather-button-container div p {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.button-border {
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.active-button-cold {
+  background-color: rgb(98, 255, 221);
+}
+
+.active-button-hot {
+  background-color: rgb(255, 41, 41);
+}
+
+/*end of hot and cold button*/
+
+/*weather content*/
+#weather-main-content h3 {
+  text-align: center;
+}
+/*end of weather content*/
+
+/*favorites*/
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  padding-bottom: 17px;
+  margin-bottom: 30px;
+}
+
+.img-one-fav {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.img-one-fav img {
+  max-width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+.meal-title-fav {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  margin: 5%;
+  justify-self: center;
+
+  font-family: var(--sans-font);
+  font-size: 25px;
+  color: var(--basic-green);
+}
+
+.right-side-grid {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  font-family: var(--sans-font);
+}
+
+.left-side-grid {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.left-side-grid img {
+  font-size: 17px;
+  margin-left: 0.7em;
+}
+
+.right-side-grid a {
+  font-size: 15px;
+}
+
+.right-side-grid p {
+  margin: 0;
+  font-size: 20px;
+  color: black;
+}
+
+/*end of favorites*/
