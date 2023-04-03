@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import banner from "../images/green.jpg";
@@ -11,11 +11,6 @@ import pasta1 from "../images/healthy-pasta-recipes.jpeg";
 import pasta2 from "../images/healthy-pasta.jpg";
 import burger from "../images/hamburger-food.jpg";
 import carbonara from "../images/carbonara.jpg";
-import { Button } from "../components/button";
-import vegetarian from "../images/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
-import vegan from "../images/vegan-icon.png";
-import protein from "../images/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
-import Loading from "../components/loading";
 import { Favorites } from "../components/favourites";
 export const Home = ({ setActivePage }) => {
   // const handleDragStart = (e) => e.preventDefault();

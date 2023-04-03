@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-import { Nav } from "./navigation/nav";
 import { Home } from "./pages/home";
 import { Hamburger } from "./navigation/hamburger";
 import { Logo } from "./logo/logo";
