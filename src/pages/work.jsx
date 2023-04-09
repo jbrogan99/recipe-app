@@ -29,7 +29,7 @@ export const Work = () => {
           text={arr}
         />
       </section>
-      <MealList url="" />
+      <MealList url="https://api.spoonacular.com/recipes/informationBulk?apiKey=10320504da754f4a83b42468d49cb216&ids=638586,1098303,661676,657159,658517,648479,632797,636488,632795,660400,157473,769754,650871,637473,637210,654911,649122,634854,645261,658535,648712,644785,664491&includeNutrition=true" />
     </>
   );
 };

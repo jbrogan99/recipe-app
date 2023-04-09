@@ -11,25 +11,28 @@ export const MealList = ({ url }) => {
 
   useEffect(() => {
     async function fetchData() {
+      console.log("fetch");
       const response = await fetch(url);
       const data = await response.json();
       setMealData(data);
       setIsLoading(false);
+      console.log("meal data", data);
     }
+
     fetchData();
   }, []);
 
   console.log("data use state", mealData);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
   return (
     <>
-      {mealData.map((data, index) => {
-        return (
-          <>
-            <main className="main-meals-container">
+      <main className="main-meals-container">
+        {mealData.map((data, index) => {
+          return (
+            <>
               <section className="meal-data-container">
                 <div className="grid-one">
                   <h3 className="meal-title">{data.title}</h3>
@@ -98,10 +101,10 @@ export const MealList = ({ url }) => {
                   </div>
                 </div>
               </section>
-            </main>
-          </>
-        );
-      })}
+            </>
+          );
+        })}
+      </main>
     </>
   );
 };

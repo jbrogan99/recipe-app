@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 export const RecipeFinder = ({
   title,
@@ -19,7 +19,9 @@ export const RecipeFinder = ({
       <h2 data-text={lastLetter} className="title">
         {title}
       </h2>
-      <p className="slogan">{slogan}</p>
+      <div className="slogan-container">
+        <p className="slogan">{slogan}</p>
+      </div>
       <div className="side-by-side">
         <img src={url1} alt={alt1} />
         <img src={url2} alt={alt2} />

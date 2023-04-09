@@ -13,10 +13,14 @@ export const NavHeadings = ({
   return (
     <>
       {showResults ? (
-        <nav>
+        <nav className="dropdown">
           <ul className="meal-types">
-            <li>Meal Types</li>
-            <li className={`${activePage === "hungover" ? "active-nav" : ""}`}>
+            <li className="">Meal Types</li>
+            <li
+              className={`nav-options ${
+                activePage === "hungover" ? "active-nav" : "nav-options"
+              }`}
+            >
               {" "}
               <Link to="/hungover" onClick={() => handleClick("hungover")}>
                 Hungover

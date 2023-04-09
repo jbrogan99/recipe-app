@@ -7,7 +7,13 @@ import { MealList } from "../components/mealList";
 import { HotColdButton } from "../components/hotColdButton";
 export const Weather = () => {
   const bubbleText = [
-    "I want something to accommodate this weather, what can I eat ?! ",
+    "I want something to",
+    <br />,
+    "accommodate this",
+    <br />,
+    "weather, what can",
+    <br />,
+    "I eat ?!",
   ];
   const [activeButton, setActiveButton] = useState("");
   const [weather, setWeather] = useState({
