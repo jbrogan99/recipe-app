@@ -29,7 +29,6 @@ test("all recipe information is displayed ", () => {
     screen.getByRole("img", { name: "alt2", src: "../pages/hungover.jsx" })
   ).toBeVisible();
   expect(screen.getByText("info")).toBeVisible();
-
   fireEvent.click(screen.getByRole("link"));
   expect(setActivePage).toHaveBeenCalled();
 });

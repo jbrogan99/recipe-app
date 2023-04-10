@@ -24,7 +24,7 @@ export const Travel = () => {
         />
         <Cartoon src1={cartoon} alt1="cartoon man rushing around" text={arr} />
       </section>
-      <MealList url="" />
+      <MealList url="https://api.spoonacular.com/recipes/informationBulk?apiKey=c928226c90814b6abab015fdd892513b&ids=1161746,1003670,1459207,1095938,1022743,639722,644306,157089,641220,1502523,1095794,157259,1099404,642138,639948,1505411,1003210,637260,1697665,1697645,1697531,636602,390813,621204,654435,660588,1697553,796684,1512847,1070648&includeNutrition=true" />
     </>
   );
 };

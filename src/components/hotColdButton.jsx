@@ -4,7 +4,7 @@ export const HotColdButton = ({ hot, cold, activeButton }) => {
   return (
     <section id="weather-button-container">
       <div id="hot-container" onClick={() => hot("hot")}>
-        <p
+        <button
           id="hot"
           className={`${
             activeButton === "hot"
@@ -13,10 +13,10 @@ export const HotColdButton = ({ hot, cold, activeButton }) => {
           }`}
         >
           Hot
-        </p>
+        </button>
       </div>
       <div id="cold-container" onClick={() => cold("cold")}>
-        <p
+        <button
           id="cold"
           className={`${
             activeButton === "cold"
@@ -24,8 +24,8 @@ export const HotColdButton = ({ hot, cold, activeButton }) => {
               : "button-border"
           }`}
         >
-          cold
-        </p>
+          Cold
+        </button>
       </div>
     </section>
   );

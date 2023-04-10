@@ -4523,7 +4523,7 @@ export const testData = [
   },
   {
     vegetarian: false,
-    vegan: false,
+    vegan: true,
     glutenFree: true,
     dairyFree: false,
     veryHealthy: false,
