@@ -3,24 +3,29 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import banner from "../images/green.jpg";
 import { RecipeFinder } from "../components/recipie-finder";
-import beanChilliWrap from "../images/bean_and_rice_burrito_33565_16x9.jpg";
-import pork from "../images/chilli-pork.jpg";
-import soup from "../images/soup-min.jpg";
-import salad from "../images/salad.jpg";
-import pasta1 from "../images/healthy-pasta-recipes.jpeg";
-import pasta2 from "../images/healthy-pasta.jpg";
-import burger from "../images/hamburger-food.jpg";
-import carbonara from "../images/carbonara.jpg";
+import beanChilliWrap from "../resized-home-images/bean_and_rice_burrito_33565_16x9.jpg";
+import pork from "../resized-home-images/Crispy-chicken - broccoli-noodles-recipe-1400x919-929996b5-bb25-4f12-9482-732dce513260-0-1400x919.jpg";
+import soup from "../resized-home-images/soup-min.jpg";
+import salad from "../resized-home-images/salad.jpg";
+import pasta1 from "../resized-home-images/healthy-pasta-recipes.jpg";
+import pasta2 from "../resized-home-images/healthy-pasta.jpg";
+import burger from "../resized-home-images/hamburger-food.jpg";
+import carbonara from "../resized-home-images/carbonara.jpg";
 import { Favorites } from "../components/favourites";
+import Loading from "../components/loading";
 
 export const Home = ({ setActivePage }) => {
   const [favoritesData, setFavoritesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(false);
   const url =
     "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true";
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(url);
+      if (!response.ok) {
+        setErrorMessage(true);
+      }
       const data = await response.json();
       setFavoritesData(data);
       setIsLoading(false);
@@ -40,6 +45,9 @@ export const Home = ({ setActivePage }) => {
     ];
     return items;
   }
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="banner">
@@ -51,11 +59,20 @@ export const Home = ({ setActivePage }) => {
       <div className="carousel-header">
         <h2 className="work-sans-font">A Few Favorites</h2>
       </div>
-      <section className="carousel">
-        {favoritesData.length > 0 && (
-          <AliceCarousel mouseTracking items={favoritesGallery()} />
-        )}
-      </section>
+      {errorMessage ? (
+        <div className="error-message">
+          <p>
+            An error occurred while loading data from the API, you have reached
+            the maximum limit of calls. Try again later!
+          </p>
+        </div>
+      ) : (
+        <section className="carousel">
+          {favoritesData.length > 0 && (
+            <AliceCarousel mouseTracking items={favoritesGallery()} />
+          )}
+        </section>
+      )}
       <main className="pastel-background recipe-finder-container">
         <RecipeFinder
           title="Feeling"

@@ -15,8 +15,11 @@ export const NavHeadings = ({
       {showResults ? (
         <nav className="dropdown">
           <ul className="meal-types">
-            <li className="">Meal Types</li>
+            <li key={"meals"} className="">
+              Meal Types
+            </li>
             <li
+              key={"hungover"}
               className={`nav-options ${
                 activePage === "hungover" ? "active-nav" : "nav-options"
               }`}
@@ -27,19 +30,28 @@ export const NavHeadings = ({
               </Link>
             </li>
 
-            <li className={`${activePage === "weather" ? "active-nav" : ""}`}>
+            <li
+              key={"weather"}
+              className={`${activePage === "weather" ? "active-nav" : ""}`}
+            >
               {" "}
               <Link to="/weather" onClick={() => handleClick("weather")}>
                 Food for Weather
               </Link>
             </li>
-            <li className={`${activePage === "work" ? "active-nav" : ""}`}>
+            <li
+              key={"work"}
+              className={`${activePage === "work" ? "active-nav" : ""}`}
+            >
               {" "}
               <Link to="/work" onClick={() => handleClick("work")}>
                 Food for Work
               </Link>
             </li>
-            <li className={`${activePage === "travel" ? "active-nav" : ""}`}>
+            <li
+              key={"travel"}
+              className={`${activePage === "travel" ? "active-nav" : ""}`}
+            >
               {" "}
               <Link to="/travel" onClick={() => handleClick("travel")}>
                 One Stop Shop
@@ -47,8 +59,11 @@ export const NavHeadings = ({
             </li>
           </ul>
           <ul className="pages">
-            <li>Pages</li>
-            <li className={`${activePage === "home" ? "active-nav" : ""}`}>
+            <li key={"pages"}>Pages</li>
+            <li
+              key={"home"}
+              className={`${activePage === "home" ? "active-nav" : ""}`}
+            >
               <Link to="/" onClick={() => handleClick("home")}>
                 Home
               </Link>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
-import cartoon from "../images/hungover-cartoon-min.png";
-
+import cartoon from "../cartoon-images/hungover-cartoon-min.png";
 import { MealList } from "../components/mealList";
 export const Hungover = () => {
   const arr = [
@@ -12,7 +11,30 @@ export const Hungover = () => {
     <br />,
     "and easy, help me!",
   ];
-  //uni account - spoonacular - https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=1062883,665175,715495,661460,1515523,665193,1095938,1450327,704655,643612,641220,022743,638780,638649,642809,1460497,157459,37264,645687,36676,1098351,42583&includeNutrition=true
+
+  const url =
+    "https://api.spoonacular.com/recipes/informationBulk?apiKey=c928226c90814b6abab015fdd892513b&ids=1062883,665175,715495,661460,1515523,665193,1095938,1450327,704655,643612,641220,022743,638780,638649,642809,1460497,157459,37264,645687,36676,1098351,42583&includeNutrition=true";
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [mealData, setMealData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    async function fetchData() {
+      console.log("fetch");
+      const response = await fetch(url);
+      if (!response.ok) {
+        setErrorMessage(true);
+      } else {
+        const data = await response.json();
+        setMealData(data);
+        setIsLoading(false);
+        console.log("meal data", data);
+      }
+    }
+    fetchData();
+  }, []);
+
+  console.log("data use state", mealData);
+
   return (
     <>
       <section className="top-info-container">
@@ -22,7 +44,16 @@ export const Hungover = () => {
         />
         <Cartoon src1={cartoon} alt1="cartoon man hungover" text={arr} />
       </section>
-      <MealList url="https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=1062883,665175,715495,661460,1515523,665193,1095938,1450327,704655,643612,641220,022743,638780,638649,642809,1460497,157459,37264,645687,36676,1098351,42583&includeNutrition=true" />
+      {errorMessage ? (
+        <div className="error-message">
+          <p>
+            An error occurred while loading data from the API, you have reached
+            the maximum limit of calls. Try again later!
+          </p>
+        </div>
+      ) : (
+        <MealList isLoading={isLoading} mealData={mealData} />
+      )}
     </>
   );
 };

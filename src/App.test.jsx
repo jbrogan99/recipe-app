@@ -4,6 +4,11 @@ import { favouritesData } from "./components/favourites-testdata";
 import { testData as mealListData } from "./components/mealList-testdata";
 import App from "./App";
 
+test("can see Nutrition logo", () => {
+  render(<App />);
+  expect(screen.getByRole("heading")).toHaveTextContent("Nutrition");
+});
+
 beforeEach(() => {
   fetch.resetMocks();
 });
@@ -17,6 +22,7 @@ test("Can select Meal Type options", async () => {
   expect(
     await screen.findByRole("heading", { name: "A Few Favorites" })
   ).toBeVisible();
+  // URL to match the url passed in on the page - [0][0] mocks first call
   expect(fetch.mock.calls[0][0]).toEqual(
     "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true"
   );
@@ -35,7 +41,6 @@ test("Can select Meal Type options", async () => {
   ).toBeVisible();
 
   expect(fetch.mock.calls[1][0]).toEqual(
-    // URL to match the url passed in on the page - [1][0] mocks first call
     "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=1062883,665175,715495,661460,1515523,665193,1095938,1450327,704655,643612,641220,022743,638780,638649,642809,1460497,157459,37264,645687,36676,1098351,42583&includeNutrition=true"
   );
 

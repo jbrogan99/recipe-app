@@ -21,13 +21,21 @@ a {
 
 :root {
   --basic-green: #4aa10f;
-  --pastel-brown: #f8f3e3;
+  --pastel-brown: #f5fff0;
   --sans-font: "Work Sans", sans-serif;
-
   --landrina-font: "Londrina Outline, cursive";
 }
+
 .desktop-header {
   display: none;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+  padding-bottom: 2em;
 }
 
 .work-sans-font {
@@ -207,6 +215,7 @@ a {
   text-decoration: none;
   color: var(--basic-green) !important;
   height: fit-content;
+  white-space: nowrap;
 }
 
 .explore::after {
@@ -402,10 +411,15 @@ a {
   display: flex;
   justify-content: center;
   gap: 1em;
+  padding-bottom: 2em;
 }
 
-#weather-button-container div p {
-  margin: 0.5em 0 0.5em 0;
+#cold-container button,
+#hot-container button {
+  width: 80px;
+  height: 50px;
+  padding: 1em;
+  cursor: pointer;
 }
 
 .button-border {

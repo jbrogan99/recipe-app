@@ -15,6 +15,13 @@ import { NavHeadingsDesktop } from "./navigation/navHeadingsDesktop";
 function App() {
   const [showResults, setShowResults] = useState(false);
   const [activePage, setActivePage] = useState("home");
+  const [errorMessage, setErrorMessage] = useState({
+    errorMessageHome: false,
+    errorMessage: false,
+    errorMessageTravel: false,
+    errorMessageWeather: false,
+    errorMessageWork: false,
+  });
   console.log("active page", activePage);
   return (
     <>
@@ -46,13 +53,50 @@ function App() {
           <Route
             path="/"
             element={
-              <Home activePage={activePage} setActivePage={setActivePage} />
+              <Home
+                activePage={activePage}
+                setActivePage={setActivePage}
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
             }
           />
-          <Route path="/hungover" element={<Hungover />} />
-          <Route path="/travel" element={<Travel />} />
-          <Route path="/weather" element={<Weather />} />
-          <Route path="/work" element={<Work />} />
+          <Route
+            path="/hungover"
+            element={
+              <Hungover
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/travel"
+            element={
+              <Travel
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/weather"
+            element={
+              <Weather
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/work"
+            element={
+              <Work
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
         </Routes>
       </Router>
     </>

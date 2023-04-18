@@ -1,9 +1,9 @@
 import React from "react";
 
-export const HotColdButton = ({ hot, cold, activeButton }) => {
+export const HotColdButton = ({ hot, cold, activeButton, hotUrl, coldUrl }) => {
   return (
     <section id="weather-button-container">
-      <div id="hot-container" onClick={() => hot("hot")}>
+      <div id="hot-container" onClick={() => hot("hot", hotUrl)}>
         <button
           id="hot"
           className={`${
@@ -15,7 +15,7 @@ export const HotColdButton = ({ hot, cold, activeButton }) => {
           Hot
         </button>
       </div>
-      <div id="cold-container" onClick={() => cold("cold")}>
+      <div id="cold-container" onClick={() => cold("cold", coldUrl)}>
         <button
           id="cold"
           className={`${

@@ -1,32 +1,14 @@
 import React, { useState, useEffect } from "react";
-import vegetarian from "../images/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
-import vegan from "../images/vegan-icon.png";
-import protein from "../images/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
+import vegetarian from "../health-images-small/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
+import vegan from "../health-images-small/vegan-icon.png";
+import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
 import { Button } from "./button";
 import Loading from "../components/loading";
 
-export const MealList = ({ url }) => {
-  const [mealData, setMealData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      console.log("fetch");
-      const response = await fetch(url);
-      const data = await response.json();
-      setMealData(data);
-      setIsLoading(false);
-      console.log("meal data", data);
-    }
-
-    fetchData();
-  }, []);
-
-  console.log("data use state", mealData);
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
+export const MealList = ({ isLoading, mealData }) => {
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <main className="main-meals-container">

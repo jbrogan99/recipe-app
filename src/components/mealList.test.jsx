@@ -23,6 +23,7 @@ test("all recipe information is displayed", async () => {
 
   expect(screen.getAllByText("Ready in: 45 Min")).toHaveLength(2);
 
+  // data to be visible on screen
   expect(screen.getByText("147.32kcal")).toBeVisible();
   expect(screen.getByText("Fat:3.93g")).toBeVisible();
   expect(screen.getByText("Saturated Fat:11.52g")).toBeVisible();
@@ -33,5 +34,5 @@ test("all recipe information is displayed", async () => {
 
   expect(screen.queryAllByText("Recipe")[0].href).toEqual(
     "https://spoonacular.com/chili-garlic-stir-fry-638586"
-  );
+  ); // check first url matches
 });

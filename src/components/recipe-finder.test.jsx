@@ -20,6 +20,7 @@ test("all recipe information is displayed ", () => {
     </BrowserRouter>
   );
 
+  // data to be visible
   expect(screen.getByRole("heading")).toHaveTextContent("recipe1");
   expect(screen.getByText("slogan")).toBeVisible();
   expect(
@@ -28,6 +29,9 @@ test("all recipe information is displayed ", () => {
   expect(
     screen.getByRole("img", { name: "alt2", src: "../pages/hungover.jsx" })
   ).toBeVisible();
+
+  // click function on link, mocks the function set active page
+
   expect(screen.getByText("info")).toBeVisible();
   fireEvent.click(screen.getByRole("link"));
   expect(setActivePage).toHaveBeenCalled();

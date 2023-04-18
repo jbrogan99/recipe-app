@@ -1,30 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./loading";
-import vegetarian from "../images/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
-import vegan from "../images/vegan-icon.png";
-import protein from "../images/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
+import vegetarian from "../health-images-small/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
+import vegan from "../health-images-small/vegan-icon.png";
+import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
 import { Button } from "./button";
 
 export const Favorites = ({ favoritesData }) => {
-  // const [favoritesData, setFavoritesData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const url =
-  //   "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true";
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-  //     setFavoritesData(data);
-  //     setIsLoading(false);
-  //     console.log("favorites data", favoritesData);
-  //   }
-  //   fetchData();
-  // }, []);
   const handleDragStart = (e) => e.preventDefault();
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
   return (
     <>
       <div className="carousel-img-container">
