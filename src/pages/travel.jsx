@@ -9,7 +9,7 @@ export const Travel = () => {
   const [isLoading, setIsLoading] = useState(true);
   const url = "http://localhost:3001/recipesTravel";
 
-  const netfliyUrl =
+  const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/travelrecipes";
   const arr = [
     "I don’t have time to",
@@ -24,7 +24,7 @@ export const Travel = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {
