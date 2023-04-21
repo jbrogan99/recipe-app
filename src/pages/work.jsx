@@ -15,6 +15,8 @@ export const Work = () => {
     "work prices.",
   ];
   const url = "http://localhost:3001/recipesWork";
+  const netlifyUrl =
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/workrecipes";
 
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
@@ -22,7 +24,7 @@ export const Work = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {

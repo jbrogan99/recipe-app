@@ -7,8 +7,10 @@ export const Travel = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url =
-    "http://localhost:3001/recipesTravel";
+  const url = "http://localhost:3001/recipesTravel";
+
+  const netfliyUrl =
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/travelrecipes";
   const arr = [
     "I don’t have time to",
     <br />,

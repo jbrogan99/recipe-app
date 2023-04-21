@@ -13,13 +13,15 @@ export const Hungover = () => {
   ];
 
   const url = "http://localhost:3001/recipesHungover";
+  const netlifyUrl =
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/hungoverrecipes";
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {
