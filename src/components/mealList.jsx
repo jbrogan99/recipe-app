@@ -12,7 +12,7 @@ export const MealList = ({ isLoading, mealData }) => {
   return (
     <>
       <main className="main-meals-container">
-        {mealData.map((data, index) => {
+        {mealData?.map((data, index) => {
           return (
             <>
               <section className="meal-data-container">

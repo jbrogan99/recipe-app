@@ -4,7 +4,7 @@ body {
 
 h2 {
   font-size: 2rem;
-  font-family: var(--source-font);
+  font-family: var(--landrina-font);
   font-weight: 400;
 }
 
@@ -137,7 +137,7 @@ a {
 
 #banner-text1 {
   font-size: 1.5rem;
-  margin: 1em;
+  margin: 1em 0 0 0;
 }
 
 #banner-text1 span {
@@ -228,7 +228,7 @@ a {
 } */
 
 .favorites-container {
-  height: 60vh;
+  height: 69vh;
 }
 
 .button-wrapper {
@@ -264,6 +264,10 @@ a {
 .btn3:hover::before {
   height: 380% !important;
 }
+/* 
+.custom-btn-width {
+  width: 6em;
+} */
 
 /*end of recipe finder*/
 
@@ -316,6 +320,7 @@ a {
 
 .title-slogan-container h2 {
   color: var(--basic-green);
+  text-align: center;
 }
 
 .title-slogan-container p {
@@ -331,6 +336,13 @@ a {
 .vegetarian {
   width: 3em;
   height: 3em;
+}
+
+.top-info-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 10% 3% 10%;
 }
 
 .meal-data-container {
@@ -440,33 +452,13 @@ a {
 /*end of loading symbol*/
 
 /*hot and cold button*/
-#weather-button-container {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  padding-bottom: 2em;
-}
-
-#cold-container button,
-#hot-container button {
-  width: 80px;
-  height: 50px;
-  padding: 1em;
-  cursor: pointer;
-}
-
-.button-border {
-  border: 1px solid black;
-  padding: 0.5em;
-  border-radius: 5px;
-}
 
 .active-button-cold {
-  background-color: rgb(98, 255, 221);
+  background-color: rgb(208, 238, 255);
 }
 
 .active-button-hot {
-  background-color: rgb(255, 41, 41);
+  background-color: rgb(255, 177, 177);
 }
 
 /*end of hot and cold button*/
@@ -553,7 +545,7 @@ a {
   }
 
   .carousel-header h2 {
-    font-size: 38px;
+    font-size: 35px;
     font-weight: 500;
   }
 
@@ -571,7 +563,7 @@ a {
     display: grid;
     grid-template-columns: 60% 1fr;
     grid-template-rows: 1fr;
-    margin: 3% 10% 0 10%;
+    margin: 3% 10% 3% 10%;
   }
 
   .title-slogan-container {
@@ -609,30 +601,6 @@ a {
   .alice-carousel__stage-item * {
     line-height: inherit;
   }
-  /* 
-  .button-container {
-    display: flex;
-  }
-
-  .explore {
-    text-decoration: none;
-    align-self: center;
-    width: 150px;
-    height: 50px;
-    line-height: 46px;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 50px;
-    border: 3px solid seagreen;
-    color: seagreen;
-    font-size: 15px;
-    font-family: arial;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    text-transform: uppercase;
-    transition: all 0.35s;
-  } */
 
   .recipe-container {
     width: 40%;
@@ -645,6 +613,17 @@ a {
   .slogan-container {
     display: flex;
     justify-content: center;
+  }
+
+  .filter-container {
+    margin: 3% 10% 3% 10%;
+  }
+
+  #weather-button-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
   }
 
   h2 {
@@ -681,7 +660,7 @@ a {
   }
 
   .favorites-container {
-    height: 80vh;
+    height: 85vh;
   }
 
   ul li {
@@ -752,11 +731,11 @@ a {
   }
 
   #banner-text1 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   #banner-text1 span {
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 

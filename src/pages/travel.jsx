@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
-import cartoon from "../cartoon-images/travel-cartoon.png";
+import cartoon from "../images-real/rushed.jpg";
 import { MealList } from "../components/mealList";
 export const Travel = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const url =
-    "https://api.spoonacular.com/recipes/informationBulk?apiKey=b34d94043fd14dcd993bc288b3a8b117&ids=1161746,1003670,1459207,1095938,1022743,639722,644306,157089,641220,1502523,1095794,157259,1099404,642138,639948,1505411,1003210,637260,1697665,1697645,1697531,636602,390813,621204,654435,660588,1697553,796684,1512847,1070648&includeNutrition=true";
+    "http://localhost:3001/recipesTravel";
   const arr = [
     "I don’t have time to",
     <br />,
@@ -27,9 +27,9 @@ export const Travel = () => {
         setErrorMessage(true);
       } else {
         const data = await response.json();
-        setMealData(data);
+        setMealData(data.travelResults);
         setIsLoading(false);
-        console.log("meal data", data);
+        console.log("meal data", data.travelResults);
       }
     }
     fetchData();

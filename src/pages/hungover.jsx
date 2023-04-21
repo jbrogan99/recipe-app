@@ -12,8 +12,7 @@ export const Hungover = () => {
     "and easy, help me!",
   ];
 
-  const url =
-    "https://api.spoonacular.com/recipes/informationBulk?apiKey=c928226c90814b6abab015fdd892513b&ids=1062883,665175,715495,661460,1515523,665193,1095938,1450327,704655,643612,641220,022743,638780,638649,642809,1460497,157459,37264,645687,36676,1098351,42583&includeNutrition=true";
+  const url = "http://localhost:3001/recipesHungover";
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +24,9 @@ export const Hungover = () => {
         setErrorMessage(true);
       } else {
         const data = await response.json();
-        setMealData(data);
+        setMealData(data.hungoverResults);
         setIsLoading(false);
-        console.log("meal data", data);
+        console.log("meal data", data.hungoverResults);
       }
     }
     fetchData();

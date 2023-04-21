@@ -18,8 +18,23 @@ export const Home = ({ setActivePage }) => {
   const [favoritesData, setFavoritesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
-  const url =
-    "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true";
+  // const url =
+  //   "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true";
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(url);
+  //     if (!response.ok) {
+  //       setErrorMessage(true);
+  //     }
+  //     const data = await response.json();
+  //     setFavoritesData(data);
+  //     setIsLoading(false);
+  //     console.log("favorites data", favoritesData);
+  //   }
+  //   fetchData();
+  // }, []);
+
+  const url = "http://localhost:3001/recipes";
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(url);
@@ -29,9 +44,11 @@ export const Home = ({ setActivePage }) => {
       const data = await response.json();
       setFavoritesData(data);
       setIsLoading(false);
-      console.log("favorites data", favoritesData);
     }
+    // console.log("favorites data", favoritesData);
     fetchData();
+    console.log("favorites data", favoritesData);
+    // console.log("data result 1", favoritesData.favoritesResults[0]);
   }, []);
 
   const responsive = {
@@ -42,13 +59,14 @@ export const Home = ({ setActivePage }) => {
 
   function favoritesGallery() {
     const items = [
-      <Favorites favoritesData={favoritesData[0]} index={1} />,
-      <Favorites favoritesData={favoritesData[1]} index={2} />,
-      <Favorites favoritesData={favoritesData[2]} index={3} />,
-      <Favorites favoritesData={favoritesData[3]} index={4} />,
-      <Favorites favoritesData={favoritesData[4]} index={5} />,
-      <Favorites favoritesData={favoritesData[5]} index={6} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[0]} index={1} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[1]} index={2} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[2]} index={3} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[3]} index={4} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[4]} index={5} />,
+      <Favorites favoritesData={favoritesData.favoritesResults[5]} index={6} />,
     ];
+
     return items;
   }
   if (isLoading) {
@@ -74,7 +92,7 @@ export const Home = ({ setActivePage }) => {
         </div>
       ) : (
         <section className="carousel">
-          {favoritesData.length > 0 && (
+          {favoritesData.favoritesResults.length > 0 && (
             <AliceCarousel
               mouseTracking
               items={favoritesGallery()}

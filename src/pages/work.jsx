@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
-import cartoon from "../cartoon-images/work-cartoon.png";
+import cartoon from "../images-real/work.jpg";
 import bubble from "../cartoon-images/bubble-new-min.png";
 import { MealList } from "../components/mealList";
 export const Work = () => {
@@ -14,8 +14,7 @@ export const Work = () => {
     <br />,
     "work prices.",
   ];
-  const url =
-    "https://api.spoonacular.com/recipes/informationBulk?apiKey=5e79c565e6fa4e49be716c0b02cd495e&ids=638586,1098303,661676,657159,658517,648479,632797,636488,632795,660400,157473,769754,650871,637473,637210,654911,649122,634854,645261,658535,648712,644785,664491&includeNutrition=true";
+  const url = "http://localhost:3001/recipesWork";
 
   const [errorMessage, setErrorMessage] = useState(false);
   const [mealData, setMealData] = useState([]);
@@ -28,9 +27,9 @@ export const Work = () => {
         setErrorMessage(true);
       } else {
         const data = await response.json();
-        setMealData(data);
+        setMealData(data.workResults);
         setIsLoading(false);
-        console.log("meal data", data);
+        console.log("meal data", data.workResults);
       }
     }
     fetchData();
