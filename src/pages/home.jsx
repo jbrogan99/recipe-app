@@ -36,7 +36,7 @@ export const Home = ({ setActivePage }) => {
 
   const url = "http://localhost:3001/recipes";
   const netlifyUrl =
-    "https://master--recipe-jbrogan.netlify.app/.netlify/functions/recipes";
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/recipes";
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(netlifyUrl);
