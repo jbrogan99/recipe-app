@@ -75,7 +75,10 @@ export const Weather = () => {
   const [errorMessageCold, setErrorMessageCold] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const netlifyUrlHot =
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/hotrecipes";
+  const netlifyUrlCold =
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/coldrecipes";
   return (
     <>
       <section className="top-info-container">
@@ -95,8 +98,8 @@ export const Weather = () => {
             activeButton={activeButton}
             hot={handleHotClick}
             cold={handleColdClick}
-            hotUrl={"http://localhost:3001/recipesWeatherHot"}
-            coldUrl={"http://localhost:3001/recipesWeatherCold"}
+            hotUrl={netlifyUrlHot}
+            coldUrl={netlifyUrlCold}
           />
         </section>
 
