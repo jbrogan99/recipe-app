@@ -2,8 +2,10 @@ import React from "react";
 
 export const Button = ({ text, link }) => {
   return (
-    <a href={link} className="explore">
-      {text}
-    </a>
+    <div className="button-wrapper">
+      <a href={link} className="btn btn3">
+        {text}
+      </a>
+    </div>
   );
 };

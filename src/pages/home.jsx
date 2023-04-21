@@ -34,14 +34,20 @@ export const Home = ({ setActivePage }) => {
     fetchData();
   }, []);
 
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
+
   function favoritesGallery() {
     const items = [
-      <Favorites favoritesData={favoritesData[0]} />,
-      <Favorites favoritesData={favoritesData[1]} />,
-      <Favorites favoritesData={favoritesData[2]} />,
-      <Favorites favoritesData={favoritesData[3]} />,
-      <Favorites favoritesData={favoritesData[4]} />,
-      <Favorites favoritesData={favoritesData[5]} />,
+      <Favorites favoritesData={favoritesData[0]} index={1} />,
+      <Favorites favoritesData={favoritesData[1]} index={2} />,
+      <Favorites favoritesData={favoritesData[2]} index={3} />,
+      <Favorites favoritesData={favoritesData[3]} index={4} />,
+      <Favorites favoritesData={favoritesData[4]} index={5} />,
+      <Favorites favoritesData={favoritesData[5]} index={6} />,
     ];
     return items;
   }
@@ -52,8 +58,8 @@ export const Home = ({ setActivePage }) => {
     <>
       <section className="banner">
         <h2 className="white inter-font" id="banner-text1">
-          Want <span>affordable, quick, healthy </span> meals? Check out our
-          meals to suit your needs
+          Want <span>affordable, quick, healthy </span> meals? <br /> Check out
+          our meals to suit your needs
         </h2>
       </section>
       <div className="carousel-header">
@@ -69,7 +75,13 @@ export const Home = ({ setActivePage }) => {
       ) : (
         <section className="carousel">
           {favoritesData.length > 0 && (
-            <AliceCarousel mouseTracking items={favoritesGallery()} />
+            <AliceCarousel
+              mouseTracking
+              items={favoritesGallery()}
+              paddingLeft={50}
+              paddingRight={50}
+              responsive={responsive}
+            />
           )}
         </section>
       )}

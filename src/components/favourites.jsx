@@ -5,12 +5,12 @@ import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
 import { Button } from "./button";
 
-export const Favorites = ({ favoritesData }) => {
+export const Favorites = ({ favoritesData, index }) => {
   const handleDragStart = (e) => e.preventDefault();
 
   return (
     <>
-      <div className="carousel-img-container">
+      <div className="carousel-img-container" data-value={index}>
         <section className="favorites-container">
           <div className="img-one-fav">
             <img

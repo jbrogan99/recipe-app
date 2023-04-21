@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
-import cartoon from "../cartoon-images/HotandCold.jpg";
+import cartoon from "../images-real/hot-fan-removebg-preview.png";
 import { MealList } from "../components/mealList";
 import { HotColdButton } from "../components/hotColdButton";
 export const Weather = () => {
@@ -77,8 +77,6 @@ export const Weather = () => {
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // cold url - https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=661260,660275,665379,640798,665388,633774,633668,639320,633831,640182,715571,638263,647867,646353,636610,660406,639722,632590,656720,662100,640994,633344,654438,1697749,638668,647551,633637&includeNutrition=true"
-  // hot url - https://api.spoonacular.com/recipes/informationBulk?apiKey=10320504da754f4a83b42468d49cb216&ids=655926,652508,655174,660403,667704,657719,643561,637357,652995,638190,645455,1697739,716433,639600,643972,659929,716437,661789,641014,662235,662263,662264,662222,1697717,662271&includeNutrition=true
   return (
     <>
       <section className="top-info-container">

@@ -27,13 +27,15 @@ export const RecipeFinder = ({
         <img src={url2} alt={alt2} />
       </div>
       <p>{info}</p>
-      <Link
-        to={link}
-        onClick={() => setActivePage(pageName)}
-        className="explore"
-      >
-        Explore
-      </Link>
+      <div className="button-wrapper">
+        <Link
+          to={link}
+          onClick={() => setActivePage(pageName)}
+          className="btn btn3"
+        >
+          Explore
+        </Link>
+      </div>
     </section>
   );
 };
