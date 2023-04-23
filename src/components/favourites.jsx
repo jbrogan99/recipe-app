@@ -50,12 +50,9 @@ export const Favorites = ({ favoritesData, index }) => {
               {favoritesData.nutrition.nutrients[0].unit}
             </p>
             <Button
-              link={
-                favoritesData.spoonacularSourceUrl
-                  ? favoritesData.spoonacularSourceUrl
-                  : favoritesData.sourceUrl
-              }
+              link={`/instructions/${favoritesData.id}`}
               text="Recipe"
+              favoritesData={favoritesData}
             />
           </div>
         </section>

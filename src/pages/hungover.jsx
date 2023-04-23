@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
-import cartoon from "../cartoon-images/hungover-cartoon-min.png";
+import cartoon from "../images-real/hungover-man.jpg";
 import { MealList } from "../components/mealList";
 export const Hungover = () => {
   const arr = [
@@ -21,7 +21,7 @@ export const Hungover = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(netlifyUrl);
+      const response = await fetch(url);
       if (!response.ok) {
         setErrorMessage(true);
       } else {

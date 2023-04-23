@@ -1,5 +1,5 @@
 import React from "react";
-import bubble from "../images/bubble-new-min.png";
+import bubble from "../cartoon-images/bubble-new-min.png";
 export const Cartoon = ({ alt1, text, src1 }) => {
   return (
     <>

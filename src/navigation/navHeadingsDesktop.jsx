@@ -8,7 +8,7 @@ export const NavHeadingsDesktop = ({ setActivePage, activePage }) => {
     <>
       <section className="nav-container">
         <nav>
-          <ul>
+          <ul className="nav-ul">
             <li className="dropdown">
               <a href="#">Meal Types</a>
               <ul>
@@ -49,7 +49,7 @@ export const NavHeadingsDesktop = ({ setActivePage, activePage }) => {
             </li>
           </ul>
         </nav>
-        <ul>
+        <ul className="nav-ul">
           <li className={`${activePage === "home" ? "active-nav" : ""}`}>
             <Link to="/" onClick={() => handleClick("home")}>
               Home

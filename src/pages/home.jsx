@@ -39,7 +39,7 @@ export const Home = ({ setActivePage }) => {
     "https://recipe-jbrogan.netlify.app/.netlify/functions/favouriterecipes";
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(netlifyUrl);
+      const response = await fetch(url);
       if (!response.ok) {
         setErrorMessage(true);
       }
@@ -106,58 +106,66 @@ export const Home = ({ setActivePage }) => {
         </section>
       )}
       <main className="pastel-background recipe-finder-container">
-        <RecipeFinder
-          title="Feeling"
-          lastLetter={` ${"Hungover?"}`}
-          slogan="Have you had one too many?"
-          url1={beanChilliWrap}
-          url2={pork}
-          info="Enjoy some of our easy, tasty and nutritional dishes, cooks in under 10 minutes"
-          alt1="bean and rice wrap"
-          alt2="chilli pork"
-          setActivePage={setActivePage}
-          link="hungover"
-          pageName="hungover"
-        />
-        <RecipeFinder
-          title="Hows the"
-          lastLetter={` ${"Weather?"}`}
-          slogan="Is it wet and rainy, or is the sun beaming down?"
-          url1={soup}
-          url2={salad}
-          info="Whatever the weather, we’ve got the dishes you need!"
-          alt1="tomato soup"
-          alt2="chicken salad"
-          setActivePage={setActivePage}
-          link="weather"
-          pageName="weather"
-        />
-        <RecipeFinder
-          title="Food for"
-          lastLetter={` ${"Work?"}`}
-          slogan="Sick of spending money on overpriced foods at work? "
-          url1={pasta1}
-          url2={pasta2}
-          info="We have a great selection of healthy re-heatable meals for you to take into work! "
-          alt1="beef pasta with sweetcorn"
-          alt2="tagliatelle pasta with herbs"
-          setActivePage={setActivePage}
-          link="work"
-          pageName="work"
-        />
-        <RecipeFinder
-          title="No Time to "
-          lastLetter={` ${"Travel?"}`}
-          slogan="Do you have to travel to find the right ingredients? "
-          url1={burger}
-          url2={carbonara}
-          info="All the ingredients for the dishes can be found in any budget supermarket"
-          alt1="hamburger"
-          alt2="carbonara"
-          setActivePage={setActivePage}
-          link="travel"
-          pageName="travel"
-        />
+        <div id="recipe-one-container">
+          <RecipeFinder
+            title="Feeling"
+            lastLetter={` ${"Hungover?"}`}
+            slogan="Have you had one too many?"
+            url1={beanChilliWrap}
+            url2={pork}
+            info="Enjoy some of our easy, tasty and nutritional dishes, cooks in under 10 minutes"
+            alt1="bean and rice wrap"
+            alt2="chilli pork"
+            setActivePage={setActivePage}
+            link="hungover"
+            pageName="hungover"
+          />
+        </div>
+        <div id="recipe-two-container">
+          <RecipeFinder
+            title="Hows the"
+            lastLetter={` ${"Weather?"}`}
+            slogan="Is it wet and rainy, or is the sun beaming down?"
+            url1={soup}
+            url2={salad}
+            info="Whatever the weather, we’ve got the dishes you need!"
+            alt1="tomato soup"
+            alt2="chicken salad"
+            setActivePage={setActivePage}
+            link="weather"
+            pageName="weather"
+          />
+        </div>
+        <div id="recipe-three-container">
+          <RecipeFinder
+            title="Food for"
+            lastLetter={` ${"Work?"}`}
+            slogan="Sick of spending money on overpriced foods at work? "
+            url1={pasta1}
+            url2={pasta2}
+            info="We have a great selection of healthy re-heatable meals for you to take into work! "
+            alt1="beef pasta with sweetcorn"
+            alt2="tagliatelle pasta with herbs"
+            setActivePage={setActivePage}
+            link="work"
+            pageName="work"
+          />
+        </div>
+        <div id="recipe-four-container">
+          <RecipeFinder
+            title="No Time to "
+            lastLetter={` ${"Travel?"}`}
+            slogan="Do you have to travel to find the right ingredients? "
+            url1={burger}
+            url2={carbonara}
+            info="All the ingredients for the dishes can be found in any budget supermarket"
+            alt1="hamburger"
+            alt2="carbonara"
+            setActivePage={setActivePage}
+            link="travel"
+            pageName="travel"
+          />
+        </div>
       </main>
     </>
   );

@@ -24,7 +24,7 @@ export const Travel = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(netlifyUrl);
+      const response = await fetch(url);
       if (!response.ok) {
         setErrorMessage(true);
       } else {

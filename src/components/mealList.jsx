@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import vegetarian from "../health-images-small/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
+import vegetarian from "../health-images-small/vegetarian-logo-new.png";
 import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
 import { Button } from "./button";
@@ -26,20 +26,6 @@ export const MealList = ({ isLoading, mealData }) => {
                 </div>
                 <div className="grid-two">
                   <div className="meal-info">
-                    {data.vegetarian === true ? (
-                      <img
-                        src={vegetarian}
-                        alt="vegetarian symbol"
-                        className="vegetarian-image"
-                      />
-                    ) : null}
-                    {data.vegan === true ? (
-                      <img
-                        src={vegan}
-                        alt="vegan symbol"
-                        className="vegan-image"
-                      />
-                    ) : null}
                     <p className="servings">Servings: {data.servings}</p>
                     <p className="time">Ready in: {data.readyInMinutes} Min</p>
                   </div>
@@ -65,11 +51,25 @@ export const MealList = ({ isLoading, mealData }) => {
                     </p>
                   </div>
                   <div className="button-container-meals">
+                    {data.vegetarian === true ? (
+                      <img
+                        src={vegetarian}
+                        alt="vegetarian symbol"
+                        className="vegetarian-image vegetarian-img-meal-list"
+                      />
+                    ) : null}
+                    {data.vegan === true ? (
+                      <img
+                        src={vegan}
+                        alt="vegan symbol"
+                        className="vegan-image vegan-img-meal-list"
+                      />
+                    ) : null}
                     {data.nutrition.nutrients[8].amount > 20 ? (
                       <img
                         src={protein}
                         alt="High in protein"
-                        className="protein-image"
+                        className="protein-image protein-img-meal-list"
                       />
                     ) : null}
                     <Button

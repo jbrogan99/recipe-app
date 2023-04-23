@@ -11,6 +11,8 @@ import { Travel } from "./pages/travel";
 import { Weather } from "./pages/weather";
 import { Work } from "./pages/work";
 import { NavHeadingsDesktop } from "./navigation/navHeadingsDesktop";
+import { Footer } from "./components/footer";
+import { RecipeInstructions } from "./pages/recipeInstructions";
 
 function App() {
   const [showResults, setShowResults] = useState(false);
@@ -22,7 +24,9 @@ function App() {
     errorMessageWeather: false,
     errorMessageWork: false,
   });
-  console.log("active page", activePage);
+  // const [id, setId] = useState(0);
+  // console.log("id", id);
+
   return (
     <>
       <Router>
@@ -36,7 +40,6 @@ function App() {
           </div>
           <div className="desktop-header">
             <Logo width="100vw" height="100vh" />
-
             <NavHeadingsDesktop
               setActivePage={setActivePage}
               activePage={activePage}
@@ -97,8 +100,10 @@ function App() {
               />
             }
           />
+          <Route path="/instructions/:id" element={<RecipeInstructions />} />
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
