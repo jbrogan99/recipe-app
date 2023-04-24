@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Home } from "./pages/home";
 import { Hamburger } from "./navigation/hamburger";
 import { Logo } from "./logo/logo";
@@ -13,6 +13,7 @@ import { Work } from "./pages/work";
 import { NavHeadingsDesktop } from "./navigation/navHeadingsDesktop";
 import { Footer } from "./components/footer";
 import { RecipeInstructions } from "./pages/recipeInstructions";
+import { ShoppingList } from "./pages/shoppingList";
 
 function App() {
   const [showResults, setShowResults] = useState(false);
@@ -24,9 +25,19 @@ function App() {
     errorMessageWeather: false,
     errorMessageWork: false,
   });
-  // const [id, setId] = useState(0);
-  // console.log("id", id);
+  const mounted = useRef(false);
 
+  useEffect(() => {
+    console.log("mounted");
+    mounted.current = true;
+
+    return () => {
+      console.log("UNmounted");
+      mounted.current = false;
+    };
+  }, []);
+  const [shoppingList, setShoppingList] = useState([]);
+  console.log("shopping basket", shoppingList);
   return (
     <>
       <Router>
@@ -100,7 +111,19 @@ function App() {
               />
             }
           />
-          <Route path="/instructions/:id" element={<RecipeInstructions />} />
+          <Route
+            path="/instructions/:id"
+            element={
+              <RecipeInstructions
+                setShoppingList={setShoppingList}
+                shoppingList={shoppingList}
+              />
+            }
+          />
+          <Route
+            path="/shoppingList"
+            element={<ShoppingList shoppingList={shoppingList} />}
+          />
         </Routes>
       </Router>
       <Footer />

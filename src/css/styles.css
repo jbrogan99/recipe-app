@@ -619,6 +619,33 @@ footer a {
 }
 /*end of footer*/
 
+/*instructions*/
+.instructions-container {
+  margin: 0 10% 0 10%;
+}
+
+.instructions-container img {
+  max-width: 100%;
+}
+
+.instructions-container h1 {
+  text-align: center;
+}
+
+.method-container {
+  margin-bottom: 2em;
+}
+
+.shopping-list-button {
+  margin-top: 2em;
+}
+
+#shopping-title {
+  text-align: center;
+}
+
+/*end of instructions*/
+
 @media only screen and (min-width: 900px) {
   p {
     font-size: 1.5rem;
@@ -769,7 +796,6 @@ footer a {
   }
 
   ul li {
-    list-style: none;
     font-size: 1.3rem;
   }
 
@@ -858,6 +884,48 @@ footer a {
 
   #banner-text1 span {
     font-weight: 500;
+  }
+
+  .instructions-container {
+    margin: 0 20% 0 20%;
+  }
+
+  .button-wrapper a {
+    cursor: pointer;
+  }
+
+  .instructions-img-container {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+  }
+
+  .ingredients-ready-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .ready-servings-container {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .ingredients-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .method-container {
+    margin-bottom: 5em;
+  }
+  .ready-servings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .ready-servings-container p {
+    margin-bottom: 0;
   }
 }
 

@@ -55,6 +55,16 @@ export const NavHeadingsDesktop = ({ setActivePage, activePage }) => {
               Home
             </Link>
           </li>
+          <li
+            className={`${activePage === "shoppingList" ? "active-nav" : ""}`}
+          >
+            <Link
+              to="/shoppingList"
+              onClick={() => handleClick("shoppingList")}
+            >
+              Shopping List
+            </Link>
+          </li>
         </ul>
       </section>
     </>

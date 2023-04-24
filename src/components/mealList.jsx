@@ -72,14 +72,7 @@ export const MealList = ({ isLoading, mealData }) => {
                         className="protein-image protein-img-meal-list"
                       />
                     ) : null}
-                    <Button
-                      link={
-                        data.spoonacularSourceUrl
-                          ? data.spoonacularSourceUrl
-                          : data.sourceUrl
-                      }
-                      text="Recipe"
-                    />
+                    <Button link={`/instructions/${data.id}`} text="Recipe" />
                   </div>
                 </div>
               </section>

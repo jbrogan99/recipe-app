@@ -18,21 +18,6 @@ export const Home = ({ setActivePage }) => {
   const [favoritesData, setFavoritesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
-  // const url =
-  //   "https://api.spoonacular.com/recipes/informationBulk?apiKey=0967c5b1dbcb4b5a84457c3b31b70645&ids=643674,1095711,1697621,1062883,642701,1070648&includeNutrition=true";
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch(url);
-  //     if (!response.ok) {
-  //       setErrorMessage(true);
-  //     }
-  //     const data = await response.json();
-  //     setFavoritesData(data);
-  //     setIsLoading(false);
-  //     console.log("favorites data", favoritesData);
-  //   }
-  //   fetchData();
-  // }, []);
 
   const url = "http://localhost:3001/recipes";
   const netlifyUrl =
