@@ -78,7 +78,10 @@ a {
 
 @media only screen and (max-width: 899px) {
   /*Nav*/
-
+  #clear-container {
+    display: flex;
+    justify-content: center;
+  }
   .hamburger-container {
     width: 100%;
     display: flex;
@@ -252,6 +255,7 @@ a {
   overflow: hidden;
   transition: 1s all ease;
   white-space: normal !important;
+  cursor: pointer;
 }
 .btn::before {
   background: rgb(185, 255, 185);
@@ -908,6 +912,15 @@ footer a {
   .ready-servings-container {
     grid-column: 2/3;
     grid-row: 1/2;
+    gap: 1.3em;
+  }
+
+  .ready-servings-container b p {
+    margin: 0;
+  }
+
+  .ready-servings-container b:first-child {
+    margin-top: 2em;
   }
 
   .ingredients-container {
@@ -926,6 +939,46 @@ footer a {
 
   .ready-servings-container p {
     margin-bottom: 0;
+  }
+
+  .nav-ul {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    padding: 0;
+  }
+  .nav-ul li {
+    list-style: none;
+  }
+  .dropdown {
+    margin-left: 1.5em;
+  }
+  #shopping-container {
+    margin: 0 10% 0 10%;
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  #shopping-title {
+    margin-bottom: 2em;
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+
+  .button-flex-instructions {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #recipe-ingredients-list {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  #clear-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
   }
 }
 

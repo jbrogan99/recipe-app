@@ -1,11 +1,9 @@
 import React from "react";
 
-export const Button = ({ text, link }) => {
+export const Button = ({ text }) => {
   return (
     <div className="button-wrapper">
-      <a href={link} className="btn btn3">
-        {text}
-      </a>
+      <button className="btn btn3">{text}</button>
     </div>
   );
 };

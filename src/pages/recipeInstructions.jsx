@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { PrintButton } from "../components/printbutton";
+import { MyContext } from "../components/instructionsContext";
 import { Button } from "../components/button";
 
-export const RecipeInstructions = ({ setShoppingList, shoppingList }) => {
+export const RecipeInstructions = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
-  const { id } = useParams();
+  const { id } = useParams(); /*extract ID from paramater*/
+  const { shoppingList, setShoppingList } = useContext(MyContext);
 
   const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=c928226c90814b6abab015fdd892513b`;
   useEffect(() => {
@@ -29,9 +32,8 @@ export const RecipeInstructions = ({ setShoppingList, shoppingList }) => {
       }); // chained set state call
     });
   };
-  // console.log("Instructions data", data);
-  console.log("shopping list recipe page", shoppingList);
-  // if (Object.keys(data).length > 0) {
+
+  console.log("extendedIngredients", data);
   return (
     <>
       <main className="instructions-container">
@@ -47,15 +49,13 @@ export const RecipeInstructions = ({ setShoppingList, shoppingList }) => {
             <b>
               <p>Servings: {data.servings}</p>
             </b>
-            <Link
-              to={{
-                pathname: `/instructions/${id}`,
-                shoppingList: shoppingList,
-              }}
-              onClick={() => handleClick(data.extendedIngredients)}
-            >
-              Add to list
-            </Link>
+            <div className="button-flex-instructions">
+              <div className="button-wrapper">
+                <a href="#" className="btn btn3" onClick={() => handleClick()}>
+                  Add to list{" "}
+                </a>
+              </div>
+            </div>
           </div>
           <div className="ingredients-container">
             <h2>Ingredients</h2>
@@ -79,7 +79,6 @@ export const RecipeInstructions = ({ setShoppingList, shoppingList }) => {
                     </p>
                   </>
                 );
-                // console.log("number", element.number);
               })
             : null}
         </div>

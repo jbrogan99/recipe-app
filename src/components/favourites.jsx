@@ -3,7 +3,8 @@ import Loading from "./loading";
 import vegetarian from "../health-images-small/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
 import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
-import { Button } from "./button";
+import { PrintButton } from "./printbutton";
+import { NewButton } from "./newButton";
 
 export const Favorites = ({ favoritesData, index }) => {
   const handleDragStart = (e) => e.preventDefault();
@@ -49,10 +50,10 @@ export const Favorites = ({ favoritesData, index }) => {
               {favoritesData.nutrition.nutrients[0].amount}
               {favoritesData.nutrition.nutrients[0].unit}
             </p>
-            <Button
-              link={`/instructions/${favoritesData.id}`}
+
+            <NewButton
+              route={`/instructions/${favoritesData.id}`}
               text="Recipe"
-              favoritesData={favoritesData}
             />
           </div>
         </section>

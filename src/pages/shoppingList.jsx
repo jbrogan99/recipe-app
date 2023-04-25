@@ -1,21 +1,29 @@
-import React from "react";
-import { Button } from "../components/button";
+import React, { useContext } from "react";
+import { PrintButton } from "../components/printbutton";
+import { MyContext } from "../components/instructionsContext";
+import { NewButton } from "../components/newButton";
 
-export const ShoppingList = ({ shoppingList }) => {
+export const ShoppingList = () => {
+  const { shoppingList } = useContext(MyContext);
+
   console.log("shopping list page", shoppingList);
   return (
     <>
-      <h1 id="shopping-title">Shopping List</h1>
-      {shoppingList.map((item) => {
-        return (
-          <ul>
-            <li>{item}</li>
-          </ul>
-        );
-      })}
-      <div id="clear-container">
-        <Button text="clear" link="#" />
-      </div>
+      <main id="shopping-container">
+        <h1 id="shopping-title">Shopping List</h1>
+        <div id="recipe-ingredients-list">
+          {shoppingList.map((item) => {
+            return (
+              <ul>
+                <li>{item}</li>
+              </ul>
+            );
+          })}
+        </div>
+        <div id="clear-container">
+          <PrintButton text="print" />
+        </div>
+      </main>
     </>
   );
 };

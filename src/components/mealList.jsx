@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import vegetarian from "../health-images-small/vegetarian-logo-new.png";
 import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
-import { Button } from "./button";
+import { PrintButton } from "./printbutton";
 import Loading from "../components/loading";
+import { Link } from "react-router-dom";
+import { NewButton } from "./newButton";
 
 export const MealList = ({ isLoading, mealData }) => {
   if (isLoading) {
@@ -72,7 +74,11 @@ export const MealList = ({ isLoading, mealData }) => {
                         className="protein-image protein-img-meal-list"
                       />
                     ) : null}
-                    <Button link={`/instructions/${data.id}`} text="Recipe" />
+
+                    <NewButton
+                      route={`/instructions/${data.id}`}
+                      text="recipe"
+                    />
                   </div>
                 </div>
               </section>

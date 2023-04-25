@@ -68,6 +68,18 @@ export const NavHeadings = ({
                 Home
               </Link>
             </li>
+            <li
+              key={"shoppingList"}
+              className={`${activePage === "shoppingList" ? "active-nav" : ""}`}
+            >
+              {" "}
+              <Link
+                to="/shoppingList"
+                onClick={() => handleClick("shoppingList")}
+              >
+                Shopping List
+              </Link>
+            </li>
           </ul>
         </nav>
       ) : null}

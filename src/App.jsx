@@ -14,6 +14,7 @@ import { NavHeadingsDesktop } from "./navigation/navHeadingsDesktop";
 import { Footer } from "./components/footer";
 import { RecipeInstructions } from "./pages/recipeInstructions";
 import { ShoppingList } from "./pages/shoppingList";
+import { MyContext } from "./components/instructionsContext";
 
 function App() {
   const [showResults, setShowResults] = useState(false);
@@ -26,7 +27,7 @@ function App() {
     errorMessageWork: false,
   });
   const mounted = useRef(false);
-
+  const [instructions, setInstructions] = useState({});
   useEffect(() => {
     console.log("mounted");
     mounted.current = true;
@@ -63,69 +64,76 @@ function App() {
             setShowResults={setShowResults}
           />
         </header>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                activePage={activePage}
-                setActivePage={setActivePage}
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            }
-          />
-          <Route
-            path="/hungover"
-            element={
-              <Hungover
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            }
-          />
-          <Route
-            path="/travel"
-            element={
-              <Travel
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            }
-          />
-          <Route
-            path="/weather"
-            element={
-              <Weather
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            }
-          />
-          <Route
-            path="/work"
-            element={
-              <Work
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            }
-          />
-          <Route
-            path="/instructions/:id"
-            element={
-              <RecipeInstructions
-                setShoppingList={setShoppingList}
-                shoppingList={shoppingList}
-              />
-            }
-          />
-          <Route
-            path="/shoppingList"
-            element={<ShoppingList shoppingList={shoppingList} />}
-          />
-        </Routes>
+        <MyContext.Provider value={{ shoppingList, setShoppingList }}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  activePage={activePage}
+                  setActivePage={setActivePage}
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
+                />
+              }
+            />
+            <Route
+              path="/hungover"
+              element={
+                <Hungover
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
+                />
+              }
+            />
+            <Route
+              path="/travel"
+              element={
+                <Travel
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
+                />
+              }
+            />
+            <Route
+              path="/weather"
+              element={
+                <Weather
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
+                />
+              }
+            />
+            <Route
+              path="/work"
+              element={
+                <Work
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
+                />
+              }
+            />
+            <Route
+              path="/instructions/:id"
+              element={
+                <RecipeInstructions
+                // setShoppingList={setShoppingList}
+                // shoppingList={shoppingList}
+                />
+              }
+            />
+            <Route
+              path="/shoppingList"
+              element={
+                <ShoppingList
+                // shoppingList={shoppingList}
+                />
+              }
+            />
+          </Routes>
+        </MyContext.Provider>
       </Router>
+
       <Footer />
     </>
   );

@@ -7,6 +7,23 @@ export const NavHeadingsDesktop = ({ setActivePage, activePage }) => {
   return (
     <>
       <section className="nav-container">
+        <ul className="nav-ul">
+          <li className={`${activePage === "home" ? "active-nav" : ""}`}>
+            <Link to="/" onClick={() => handleClick("home")}>
+              Home
+            </Link>
+          </li>
+          <li
+            className={`${activePage === "shoppingList" ? "active-nav" : ""}`}
+          >
+            <Link
+              to="/shoppingList"
+              onClick={() => handleClick("shoppingList")}
+            >
+              Shopping List
+            </Link>
+          </li>
+        </ul>
         <nav>
           <ul className="nav-ul">
             <li className="dropdown">
@@ -49,23 +66,6 @@ export const NavHeadingsDesktop = ({ setActivePage, activePage }) => {
             </li>
           </ul>
         </nav>
-        <ul className="nav-ul">
-          <li className={`${activePage === "home" ? "active-nav" : ""}`}>
-            <Link to="/" onClick={() => handleClick("home")}>
-              Home
-            </Link>
-          </li>
-          <li
-            className={`${activePage === "shoppingList" ? "active-nav" : ""}`}
-          >
-            <Link
-              to="/shoppingList"
-              onClick={() => handleClick("shoppingList")}
-            >
-              Shopping List
-            </Link>
-          </li>
-        </ul>
       </section>
     </>
   );
