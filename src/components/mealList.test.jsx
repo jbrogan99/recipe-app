@@ -7,9 +7,9 @@ beforeEach(() => {
 
 test("all recipe information is displayed", async () => {
   fetch.mockResponseOnce(JSON.stringify(testData)); // mock data
-  render(<MealList url="wwww" />); // render meal list comp
+  render(<MealList mealData="http://localhost:3001/recipesHungover" />); // render meal list comp
   expect((await screen.findAllByRole("heading"))[0]).toHaveTextContent(
-    testData[0].title
+    testData.title
   ); // await to ensure data is back
 
   const heading = await screen.findAllByRole("heading");

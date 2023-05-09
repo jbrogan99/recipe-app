@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import banner from "../images/green.jpg";
-import { RecipeFinder } from "../components/recipie-finder";
+import { RecipeFinder } from "../components/recipeFinder";
 import beanChilliWrap from "../resized-home-images/bean_and_rice_burrito_33565_16x9.jpg";
 import pork from "../resized-home-images/Crispy-chicken - broccoli-noodles-recipe-1400x919-929996b5-bb25-4f12-9482-732dce513260-0-1400x919.jpg";
 import soup from "../resized-home-images/soup-min.jpg";
@@ -19,12 +19,15 @@ export const Home = ({ setActivePage }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const url = "http://localhost:3001/recipes";
+  const url = "http://localhost:3001/recipes"; // local server
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/favouriterecipes";
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
+      {
+        /*checks whether the reponse is okay*/
+      }
       if (!response.ok) {
         setErrorMessage(true);
       }
@@ -32,10 +35,8 @@ export const Home = ({ setActivePage }) => {
       setFavoritesData(data);
       setIsLoading(false);
     }
-    // console.log("favorites data", favoritesData);
     fetchData();
     console.log("favorites data", favoritesData);
-    // console.log("data result 1", favoritesData.favoritesResults[0]);
   }, []);
 
   const responsive = {
@@ -45,6 +46,9 @@ export const Home = ({ setActivePage }) => {
   };
 
   function favoritesGallery() {
+    {
+      /* carousel items */
+    }
     const items = [
       <Favorites favoritesData={favoritesData.favoritesResults[0]} index={1} />,
       <Favorites favoritesData={favoritesData.favoritesResults[1]} index={2} />,
@@ -53,9 +57,13 @@ export const Home = ({ setActivePage }) => {
       <Favorites favoritesData={favoritesData.favoritesResults[4]} index={5} />,
       <Favorites favoritesData={favoritesData.favoritesResults[5]} index={6} />,
     ];
-
     return items;
   }
+
+  {
+    /* if its loading show the spinner */
+  }
+
   if (isLoading) {
     return <Loading />;
   }
@@ -70,6 +78,7 @@ export const Home = ({ setActivePage }) => {
       <div className="carousel-header">
         <h2 className="work-sans-font">A Few Favorites</h2>
       </div>
+      {/* check if api calls have been reached */}
       {errorMessage ? (
         <div className="error-message">
           <p>
@@ -79,6 +88,7 @@ export const Home = ({ setActivePage }) => {
         </div>
       ) : (
         <section className="carousel">
+          {/* make sure favourites data is there before rendering */}
           {favoritesData.favoritesResults.length > 0 && (
             <AliceCarousel
               mouseTracking

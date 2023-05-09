@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Cartoon } from "../components/cartoon";
 import { TitleSlogan } from "../components/titleSlogan";
 import cartoon from "../images-real/hot-fan-removebg-preview.png";
 import { MealList } from "../components/mealList";
 import { HotColdButton } from "../components/hotColdButton";
 export const Weather = () => {
-  const bubbleText = [
-    "I want something to",
-    <br />,
-    "accommodate this",
-    <br />,
-    "weather, what can",
-    <br />,
-    "I eat ?!",
-  ];
   const [activeButton, setActiveButton] = useState("");
   const [weather, setWeather] = useState({
     // state that swaps between hot and cold meals
@@ -31,7 +22,7 @@ export const Weather = () => {
     setActiveButton(button);
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(urlCold);
       if (!response.ok) {
         setErrorMessageCold(true);
       } else {
@@ -56,7 +47,7 @@ export const Weather = () => {
     setActiveButton(button);
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(urlHot);
       if (!response.ok) {
         setErrorMessageHot(true);
       } else {
@@ -69,16 +60,13 @@ export const Weather = () => {
     fetchData();
   };
 
-  useEffect(() => {}, [weather]); // runs on first render and when weather state is updated (hot or cold)
-
   const [errorMessageHot, setErrorMessageHot] = useState(false);
   const [errorMessageCold, setErrorMessageCold] = useState(false);
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const netlifyUrlHot =
-    "https://recipe-jbrogan.netlify.app/.netlify/functions/hotrecipes";
-  const netlifyUrlCold =
-    "https://recipe-jbrogan.netlify.app/.netlify/functions/coldrecipes";
+  const urlHot = "http://localhost:3001/recipesWeatherHot";
+  const urlCold = "http://localhost:3001/recipesWeatherCold";
+
   return (
     <>
       <section className="top-info-container">
@@ -89,7 +77,9 @@ export const Weather = () => {
         <Cartoon
           src1={cartoon}
           alt1="cartoon man with hands on hs head, panicking"
-          text={bubbleText}
+          text={
+            "I want something to accommodate this weather, what can I eat ?!"
+          }
         />
       </section>
       <main id="weather-main-content">
@@ -98,8 +88,8 @@ export const Weather = () => {
             activeButton={activeButton}
             hot={handleHotClick}
             cold={handleColdClick}
-            hotUrl={netlifyUrlHot}
-            coldUrl={netlifyUrlCold}
+            hotUrl={urlHot}
+            coldUrl={urlCold}
           />
         </section>
 

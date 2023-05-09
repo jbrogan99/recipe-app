@@ -14,7 +14,6 @@ import { NavHeadingsDesktop } from "./navigation/navHeadingsDesktop";
 import { Footer } from "./components/footer";
 import { RecipeInstructions } from "./pages/recipeInstructions";
 import { ShoppingList } from "./pages/shoppingList";
-import { MyContext } from "./components/instructionsContext";
 
 function App() {
   const [showResults, setShowResults] = useState(false);
@@ -28,6 +27,8 @@ function App() {
   });
   const mounted = useRef(false);
   const [instructions, setInstructions] = useState({});
+  const [shoppingList, setShoppingList] = useState([]);
+
   useEffect(() => {
     console.log("mounted");
     mounted.current = true;
@@ -37,8 +38,7 @@ function App() {
       mounted.current = false;
     };
   }, []);
-  const [shoppingList, setShoppingList] = useState([]);
-  console.log("shopping basket", shoppingList);
+
   return (
     <>
       <Router>
@@ -64,74 +64,69 @@ function App() {
             setShowResults={setShowResults}
           />
         </header>
-        <MyContext.Provider value={{ shoppingList, setShoppingList }}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  activePage={activePage}
-                  setActivePage={setActivePage}
-                  errorMessage={errorMessage}
-                  setErrorMessage={setErrorMessage}
-                />
-              }
-            />
-            <Route
-              path="/hungover"
-              element={
-                <Hungover
-                  errorMessage={errorMessage}
-                  setErrorMessage={setErrorMessage}
-                />
-              }
-            />
-            <Route
-              path="/travel"
-              element={
-                <Travel
-                  errorMessage={errorMessage}
-                  setErrorMessage={setErrorMessage}
-                />
-              }
-            />
-            <Route
-              path="/weather"
-              element={
-                <Weather
-                  errorMessage={errorMessage}
-                  setErrorMessage={setErrorMessage}
-                />
-              }
-            />
-            <Route
-              path="/work"
-              element={
-                <Work
-                  errorMessage={errorMessage}
-                  setErrorMessage={setErrorMessage}
-                />
-              }
-            />
-            <Route
-              path="/instructions/:id"
-              element={
-                <RecipeInstructions
-                // setShoppingList={setShoppingList}
-                // shoppingList={shoppingList}
-                />
-              }
-            />
-            <Route
-              path="/shoppingList"
-              element={
-                <ShoppingList
-                // shoppingList={shoppingList}
-                />
-              }
-            />
-          </Routes>
-        </MyContext.Provider>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                activePage={activePage}
+                setActivePage={setActivePage}
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/hungover"
+            element={
+              <Hungover
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/travel"
+            element={
+              <Travel
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/weather"
+            element={
+              <Weather
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/work"
+            element={
+              <Work
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            }
+          />
+          <Route
+            path="/instructions/:id"
+            element={<RecipeInstructions setShoppingList={setShoppingList} />}
+          />
+          <Route
+            path="/shoppingList"
+            element={
+              <ShoppingList
+                shoppingList={shoppingList}
+                setShoppingList={setShoppingList}
+              />
+            }
+          />
+        </Routes>
       </Router>
 
       <Footer />

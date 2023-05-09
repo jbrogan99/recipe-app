@@ -12,12 +12,14 @@ export const NavHeadings = ({
   };
   return (
     <>
-      {showResults ? (
+      {showResults ? ( // if show results is true
         <nav className="dropdown">
           <ul className="meal-types">
             <li key={"meals"} className="">
               Meal Types
             </li>
+            {/* assigning class to the active page  */}
+
             <li
               key={"hungover"}
               className={`nav-options ${
@@ -35,6 +37,7 @@ export const NavHeadings = ({
               className={`${activePage === "weather" ? "active-nav" : ""}`}
             >
               {" "}
+              {/* link to page*/}
               <Link to="/weather" onClick={() => handleClick("weather")}>
                 Food for Weather
               </Link>

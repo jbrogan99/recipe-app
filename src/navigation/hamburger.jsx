@@ -8,7 +8,7 @@ export const Hamburger = ({ setShowResults, showResults }) => {
         alt="hamburger menu"
         width="80vw"
         height="60vh"
-        onClick={() => setShowResults(!showResults)}
+        onClick={() => setShowResults(!showResults)} /*toggle the results*/
       />
     </div>
   );

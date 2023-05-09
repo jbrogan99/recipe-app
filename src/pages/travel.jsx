@@ -11,20 +11,11 @@ export const Travel = () => {
 
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/travelrecipes";
-  const arr = [
-    "I don’t have time to",
-    <br />,
-    "go to Tesco, Asda,",
-    <br />,
-    "and Aldi. I just need",
-    <br />,
-    "one shop!",
-  ];
 
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {
@@ -43,7 +34,13 @@ export const Travel = () => {
           title="One stop shop?"
           slogan="All in one place! Check out our recipes that only require one shop. To make it better you can get all ingredients from your local budget supermarket.   "
         />
-        <Cartoon src1={cartoon} alt1="cartoon man rushing around" text={arr} />
+        <Cartoon
+          src1={cartoon}
+          alt1="cartoon man rushing around"
+          text={
+            "I don’t have time to go to Tesco, Asda, and Aldi. I just need one shop!"
+          }
+        />
       </section>
       {errorMessage ? (
         <div className="error-message">

@@ -8,7 +8,7 @@ describe("favourites", () => {
   test("all recipe information is displayed", () => {
     const input = favouritesData;
 
-    render(<Favorites favoritesData={input} />);
+    render(<Favorites favoritesData={input} index={0} />);
 
     expect(screen.getByRole("heading")).toHaveTextContent("Fried Brown Rice");
     expect(screen.getByText("Ready in: 25 Mins")).toBeVisible();

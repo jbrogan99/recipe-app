@@ -8,6 +8,7 @@ export const Cartoon = ({ alt1, text, src1 }) => {
         <div className="flex-container-bubble">
           <div className="bubble-text-container">
             <img src={bubble} alt="thought bubble" />
+
             <p>{text}</p>
           </div>
         </div>

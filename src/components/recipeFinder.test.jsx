@@ -1,5 +1,5 @@
 import { getByText, render, screen, fireEvent } from "@testing-library/react";
-import { RecipeFinder } from "./recipie-finder";
+import { RecipeFinder } from "./recipeFinder";
 import { BrowserRouter } from "react-router-dom";
 
 test("all recipe information is displayed ", () => {

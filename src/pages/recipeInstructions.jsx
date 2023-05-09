@@ -2,14 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PrintButton } from "../components/printbutton";
 import { MyContext } from "../components/instructionsContext";
-import { Button } from "../components/button";
 
-export const RecipeInstructions = () => {
+export const RecipeInstructions = ({ setShoppingList }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
   const { id } = useParams(); /*extract ID from paramater*/
-  const { shoppingList, setShoppingList } = useContext(MyContext);
 
   const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=c928226c90814b6abab015fdd892513b`;
   useEffect(() => {
@@ -25,11 +23,16 @@ export const RecipeInstructions = () => {
     fetchData();
   }, []);
 
+  {
+    /* adding recipe ingedients to shopping list array */
+  }
   const handleClick = () => {
-    data.extendedIngredients?.forEach((element) => {
-      setShoppingList((shoppingList) => {
-        return [...shoppingList, element.original];
-      }); // chained set state call
+    const newRecipe = [data.title];
+    data.extendedIngredients?.forEach((ingredient) => {
+      newRecipe.push(ingredient.original);
+    });
+    setShoppingList((shoppingList) => {
+      return [...shoppingList, newRecipe];
     });
   };
 
@@ -59,28 +62,28 @@ export const RecipeInstructions = () => {
           </div>
           <div className="ingredients-container">
             <h2>Ingredients</h2>
-            {data.extendedIngredients?.map((element) => {
-              return (
-                <ul className="ul-ingredients">
-                  <li>{element.original}</li>
-                </ul>
-              );
-            })}
+            <ul className="ul-ingredients">
+              {/* looping round ingredients */}
+              {data.extendedIngredients?.map((element, index) => {
+                return <li key={index}>{element.original}</li>;
+              })}
+            </ul>
           </div>
         </div>
         <div className="method-container">
           <h2>Instructions</h2>
-          {Object.keys(data).length > 0
-            ? data.analyzedInstructions[0]?.steps?.map((element) => {
-                return (
-                  <>
-                    <p>
+          <ul>
+            {/* looping round instructions */}
+            {Object.keys(data).length > 0
+              ? data.analyzedInstructions[0]?.steps?.map((element, index) => {
+                  return (
+                    <li key={index}>
                       Step {element.number}: {element.step}
-                    </p>
-                  </>
-                );
-              })
-            : null}
+                    </li>
+                  );
+                })
+              : null}
+          </ul>
         </div>
       </main>
     </>

@@ -4,13 +4,7 @@ import { TitleSlogan } from "../components/titleSlogan";
 import cartoon from "../images-real/hungover-man.jpg";
 import { MealList } from "../components/mealList";
 export const Hungover = () => {
-  const arr = [
-    "I just want",
-    <br />,
-    "something quick",
-    <br />,
-    "and easy, help me!",
-  ];
+  const arr = [];
 
   const url = "http://localhost:3001/recipesHungover";
   const netlifyUrl =
@@ -21,7 +15,7 @@ export const Hungover = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {
@@ -43,7 +37,11 @@ export const Hungover = () => {
           title="Hungover?"
           slogan="We know what its like, so we’ve put together a great selection of meals for you to choose from. Quick, easy and tasty!  "
         />
-        <Cartoon src1={cartoon} alt1="cartoon man hungover" text={arr} />
+        <Cartoon
+          src1={cartoon}
+          alt1="cartoon man hungover"
+          text={"I just want something quick and easy, help me!"}
+        />
       </section>
       {errorMessage ? (
         <div className="error-message">

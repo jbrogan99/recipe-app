@@ -5,15 +5,6 @@ import cartoon from "../images-real/work.jpg";
 import bubble from "../cartoon-images/bubble-new-min.png";
 import { MealList } from "../components/mealList";
 export const Work = () => {
-  const arr = [
-    "I wan't tasty",
-    <br />,
-    "re-heatable meals!",
-    <br />,
-    "I can’t afford these",
-    <br />,
-    "work prices.",
-  ];
   const url = "http://localhost:3001/recipesWork";
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/workrecipes";
@@ -24,7 +15,7 @@ export const Work = () => {
   useEffect(() => {
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(url);
+      const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
       } else {
@@ -47,7 +38,9 @@ export const Work = () => {
           src1={cartoon}
           src2={bubble}
           alt1="cartoon man with hands on hs head, panicking"
-          text={arr}
+          text={
+            "I wan't tasty re-heatable meals! I can’t afford these work prices."
+          }
         />
       </section>
       {errorMessage ? (
