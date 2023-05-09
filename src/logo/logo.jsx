@@ -4,7 +4,7 @@ export const Logo = ({ width, height }) => {
   return (
     <>
       <h2 className="nutrition-logo">
-        <span className="n">N</span>utriton
+        <span className="n">N</span>utrition
       </h2>
     </>
   );

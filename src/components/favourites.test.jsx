@@ -3,12 +3,17 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { Favorites } from "./favourites";
+import { BrowserRouter } from "react-router-dom";
 
 describe("favourites", () => {
   test("all recipe information is displayed", () => {
     const input = favouritesData;
 
-    render(<Favorites favoritesData={input} index={0} />);
+    render(
+      <BrowserRouter>
+        <Favorites favoritesData={input} index={0} />
+      </BrowserRouter>
+    );
 
     expect(screen.getByRole("heading")).toHaveTextContent("Fried Brown Rice");
     expect(screen.getByText("Ready in: 25 Mins")).toBeVisible();
