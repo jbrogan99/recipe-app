@@ -22,7 +22,6 @@ export const Work = () => {
         const data = await response.json();
         setMealData(data.workResults);
         setIsLoading(false);
-        console.log("meal data", data.workResults);
       }
     }
     fetchData();

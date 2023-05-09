@@ -29,16 +29,6 @@ function App() {
   const [instructions, setInstructions] = useState({});
   const [shoppingList, setShoppingList] = useState([]);
 
-  useEffect(() => {
-    console.log("mounted");
-    mounted.current = true;
-
-    return () => {
-      console.log("UNmounted");
-      mounted.current = false;
-    };
-  }, []);
-
   return (
     <>
       <Router>

@@ -4,15 +4,17 @@ import { favouritesData } from "./components/favourites-testdata";
 import { testData as mealListData } from "./components/mealList-testdata";
 import App from "./App";
 
-test("can see Nutrition logo", () => {
-  render(<App />);
-  expect(screen.getByRole("heading", { name: "Nutrition" })).toHaveTextContent(
-    "Nutrition"
-  );
-});
-
 beforeEach(() => {
   fetch.resetMocks();
+});
+
+test("can see Nutrition logo", async () => {
+  const responseData = JSON.stringify(favouritesData);
+  fetch.mockResponseOnce(responseData);
+  render(<App />);
+  expect(
+    await screen.findAllByRole("heading", { name: "N utrition" })
+  ).toHaveLength(2); // The DOM contains the header for mobile and desktop logo's - one of them is hidden based on the viewport size
 });
 
 test("Can select Meal Type options", async () => {
@@ -37,7 +39,7 @@ test("Can select Meal Type options", async () => {
   expect(
     // result from the mocked data
     await screen.findByRole("heading", {
-      name: "Chili-Garlic Stir Fry",
+      name: "Berry Banana Breakfast Smoothie",
     })
   ).toBeVisible();
 
@@ -49,11 +51,11 @@ test("Can select Meal Type options", async () => {
   await user.hover(screen.getByRole("link", { name: "Meal Types" }));
   await user.click(screen.getByRole("link", { name: "Food for Weather" }));
   fetch.mockResponseOnce(JSON.stringify(mealListData));
-  await user.click(screen.getByRole("button", { name: "Hot" }));
+  await user.click(screen.getByRole("link", { name: "Hot" }));
 
   expect(
     await screen.findByRole("heading", {
-      name: "Chili-Garlic Stir Fry",
+      name: "Berry Banana Breakfast Smoothie",
     })
   ).toBeVisible();
 
@@ -63,11 +65,11 @@ test("Can select Meal Type options", async () => {
   //weather cold
 
   fetch.mockResponseOnce(JSON.stringify(mealListData));
-  await user.click(screen.getByRole("button", { name: "Cold" }));
+  await user.click(screen.getByRole("link", { name: "Cold" }));
 
   expect(
     await screen.findByRole("heading", {
-      name: "Chili-Garlic Stir Fry",
+      name: "Turkey Tomato Cheese Pizza",
     })
   ).toBeVisible();
 
@@ -83,7 +85,7 @@ test("Can select Meal Type options", async () => {
   await user.click(screen.getByRole("link", { name: "Food for Work" }));
   expect(
     await screen.findByRole("heading", {
-      name: "Chili-Garlic Stir Fry",
+      name: "Turkey Tomato Cheese Pizza",
     })
   ).toBeVisible();
 
@@ -98,7 +100,7 @@ test("Can select Meal Type options", async () => {
   await user.click(screen.getByRole("link", { name: "One Stop Shop" }));
   expect(
     await screen.findByRole("heading", {
-      name: "Chili-Garlic Stir Fry",
+      name: "Turkey Tomato Cheese Pizza",
     })
   ).toBeVisible();
 

@@ -14,7 +14,6 @@ export const Hungover = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
-      console.log("fetch");
       const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);
@@ -22,7 +21,6 @@ export const Hungover = () => {
         const data = await response.json();
         setMealData(data.hungoverResults);
         setIsLoading(false);
-        console.log("meal data", data.hungoverResults);
       }
     }
     fetchData();

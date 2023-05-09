@@ -22,7 +22,6 @@ export const Travel = () => {
         const data = await response.json();
         setMealData(data.travelResults);
         setIsLoading(false);
-        console.log("meal data", data.travelResults);
       }
     }
     fetchData();

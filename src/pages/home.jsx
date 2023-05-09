@@ -25,18 +25,16 @@ export const Home = ({ setActivePage }) => {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(netlifyUrl);
-      {
-        /*checks whether the reponse is okay*/
-      }
+
       if (!response.ok) {
         setErrorMessage(true);
       }
+
       const data = await response.json();
       setFavoritesData(data);
       setIsLoading(false);
     }
     fetchData();
-    console.log("favorites data", favoritesData);
   }, []);
 
   const responsive = {
@@ -46,9 +44,8 @@ export const Home = ({ setActivePage }) => {
   };
 
   function favoritesGallery() {
-    {
-      /* carousel items */
-    }
+    /* carousel items */
+
     const items = [
       <Favorites favoritesData={favoritesData.favoritesResults[0]} index={1} />,
       <Favorites favoritesData={favoritesData.favoritesResults[1]} index={2} />,
