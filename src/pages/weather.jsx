@@ -65,9 +65,9 @@ export const Weather = () => {
   const [mealData, setMealData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const urlHot =
-    "https://recipe-jbrogan.netlify.app/.netlify/functions/recipesWeatherHot";
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/hotrecipes";
   const urlCold =
-    "https://recipe-jbrogan.netlify.app/.netlify/functions/recipesWeatherCold";
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/coldrecipes";
 
   return (
     <>
