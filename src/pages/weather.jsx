@@ -22,7 +22,7 @@ export const Weather = () => {
     setActiveButton(button);
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(urlCold);
+      const response = await fetch(url);
       if (!response.ok) {
         setErrorMessageCold(true);
       } else {
@@ -47,7 +47,7 @@ export const Weather = () => {
     setActiveButton(button);
     async function fetchData() {
       console.log("fetch");
-      const response = await fetch(urlHot);
+      const response = await fetch(url);
       if (!response.ok) {
         setErrorMessageHot(true);
       } else {
