@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Loading from "./loading";
+import React from "react";
 import vegetarian from "../health-images-small/vegetarianism-vegan-friendly-veganism-logo-brand-vegetarian-logo-3c9e4e12543f37bd7903e99215502861.png";
 import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
-import { PrintButton } from "./printbutton";
 import { NewButton } from "./newButton";
 
 export const Favorites = ({ favoritesData, index }) => {
   const handleDragStart = (e) => e.preventDefault();
 
-  console.log(favoritesData);
   return (
     <>
       <div className="carousel-img-container" data-value={index}>

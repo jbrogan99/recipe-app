@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Home } from "./pages/home";
 import { Hamburger } from "./navigation/hamburger";
 import { Logo } from "./logo/logo";
@@ -117,7 +117,6 @@ function App() {
           />
         </Routes>
       </Router>
-
       <Footer />
     </>
   );

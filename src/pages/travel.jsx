@@ -13,7 +13,6 @@ export const Travel = () => {
 
   useEffect(() => {
     async function fetchData() {
-      console.log("fetch");
       const response = await fetch(netlifyUrl);
       if (!response.ok) {
         setErrorMessage(true);

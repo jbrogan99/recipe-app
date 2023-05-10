@@ -11,7 +11,6 @@ export const ShoppingList = ({ shoppingList, setShoppingList }) => {
     newItems.splice(index, 1);
     setShoppingList(newItems);
   };
-  console.log("slist", shoppingList);
   return (
     <>
       <main id="shopping-container">

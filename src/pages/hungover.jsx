@@ -23,8 +23,6 @@ export const Hungover = () => {
     fetchData();
   }, []);
 
-  console.log("data use state", mealData);
-
   return (
     <>
       <section className="top-info-container">

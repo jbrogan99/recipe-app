@@ -34,7 +34,6 @@ export const RecipeInstructions = ({ setShoppingList }) => {
     });
   };
 
-  console.log("extendedIngredients", data);
   return (
     <>
       <main className="instructions-container">

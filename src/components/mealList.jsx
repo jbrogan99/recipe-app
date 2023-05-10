@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import vegetarian from "../health-images-small/vegetarian-logo-new.png";
 import vegan from "../health-images-small/vegan-icon.png";
 import protein from "../health-images-small/high-protein-sign-stamp-white-background-vector-illustration-high-protein-sign-stamp-171023492.jpg";
-import { PrintButton } from "./printbutton";
 import Loading from "../components/loading";
-import { BrowserRouter, Link } from "react-router-dom";
 import { NewButton } from "./newButton";
 
 export const MealList = ({ isLoading, mealData }) => {

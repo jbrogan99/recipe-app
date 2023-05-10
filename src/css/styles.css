@@ -16,7 +16,7 @@ p {
   font-size: 1.4rem;
 }
 
-.nutrition-logo {
+.nutrition-logo-container {
   font-size: 2.5rem;
 }
 
@@ -64,7 +64,7 @@ a {
   padding-bottom: 2em;
 }
 
-.nutrition-logo {
+.nutrition-logo-container {
   color: var(--basic-green);
 
   font-family: var(--landrina-font);
@@ -78,7 +78,7 @@ a {
   margin-bottom: 5px;
 }
 
-.n {
+.nutrition-logo {
   text-align: center;
   border: 4px solid var(--basic-green);
   display: inline;
@@ -806,7 +806,7 @@ footer a {
     font-size: 2em;
   }
 
-  .nutrition-logo {
+  .nutrition-logo-container {
     margin-left: 2rem;
   }
 

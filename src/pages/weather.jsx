@@ -21,7 +21,6 @@ export const Weather = () => {
     }));
     setActiveButton(button);
     async function fetchData() {
-      console.log("fetch");
       const response = await fetch(url);
       if (!response.ok) {
         setErrorMessageCold(true);
@@ -29,7 +28,6 @@ export const Weather = () => {
         const data = await response.json();
         setMealData(data);
         setIsLoading(false);
-        console.log("cold", data);
       }
     }
     fetchData();
@@ -46,7 +44,6 @@ export const Weather = () => {
 
     setActiveButton(button);
     async function fetchData() {
-      console.log("fetch weather");
       const response = await fetch(url);
       if (!response.ok) {
         setErrorMessageHot(true);
@@ -54,7 +51,6 @@ export const Weather = () => {
         const data = await response.json();
         setMealData(data);
         setIsLoading(false);
-        console.log("hot");
       }
     }
     fetchData();
