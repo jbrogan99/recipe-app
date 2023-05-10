@@ -3,7 +3,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { RecipeFinder } from "../components/recipeFinder";
 import beanChilliWrap from "../resized-home-images/bean_and_rice_burrito_33565_16x9.jpg";
-import pork from "../resized-home-images/Crispy-chicken - broccoli-noodles-recipe-1400x919-929996b5-bb25-4f12-9482-732dce513260-0-1400x919.jpg";
+import pork from "../resized-home-images/crispy-chicken.jpg";
 import soup from "../resized-home-images/soup-min.jpg";
 import salad from "../resized-home-images/salad.jpg";
 import pasta1 from "../resized-home-images/healthy-pasta-recipes.jpg";
