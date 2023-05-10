@@ -109,6 +109,11 @@ a {
 
 @media only screen and (max-width: 899px) {
   /*Nav*/
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
   #clear-container {
     display: flex;
     justify-content: center;
@@ -605,7 +610,6 @@ footer {
   padding: 2em;
   background-color: var(--pastel-brown);
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2em;
   border-top: 3px solid rgb(0, 0, 0);

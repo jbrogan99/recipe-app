@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { PrintButton } from "../components/printbutton";
-import { MyContext } from "../components/instructionsContext";
 import { Link } from "react-router-dom";
 
 export const ShoppingList = ({ shoppingList, setShoppingList }) => {

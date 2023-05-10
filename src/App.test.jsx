@@ -3,6 +3,10 @@ import userEvent from "@testing-library/user-event";
 import { favouritesData } from "./components/favourites-testdata";
 import { testData as mealListData } from "./components/mealList-testdata";
 import App from "./App";
+import { workMealsTestData } from "./components/workMeals-testdata";
+import { hotMealsTestData } from "./components/hotMeals-testdata";
+import { coldMealsTestData } from "./components/coldMeals-testdata";
+import { travelResultsTestData } from "./components/travelMeals-testdata";
 
 beforeEach(() => {
   fetch.resetMocks();
@@ -47,10 +51,10 @@ test("Can select Meal Type options", async () => {
     "https://recipe-jbrogan.netlify.app/.netlify/functions/hungoverrecipes"
   );
 
-  //weather hot
+  // weather hot
   await user.hover(screen.getByRole("link", { name: "Meal Types" }));
   await user.click(screen.getByRole("link", { name: "Food for Weather" }));
-  fetch.mockResponseOnce(JSON.stringify(mealListData));
+  fetch.mockResponseOnce(JSON.stringify(hotMealsTestData));
   await user.click(screen.getByRole("link", { name: "Hot" }));
 
   expect(
@@ -60,32 +64,32 @@ test("Can select Meal Type options", async () => {
   ).toBeVisible();
 
   expect(fetch.mock.calls[2][0]).toEqual(
-    "http://localhost:3001/recipesWeatherHot"
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/hotrecipes"
   );
-  //weather cold
+  // weather cold
 
-  fetch.mockResponseOnce(JSON.stringify(mealListData));
+  fetch.mockResponseOnce(JSON.stringify(coldMealsTestData));
   await user.click(screen.getByRole("link", { name: "Cold" }));
 
   expect(
     await screen.findByRole("heading", {
-      name: "Turkey Tomato Cheese Pizza",
+      name: "Asparagus and Pea Soup: Real Convenience Food",
     })
   ).toBeVisible();
 
   expect(fetch.mock.calls[3][0]).toEqual(
-    "http://localhost:3001/recipesWeatherCold"
+    "https://recipe-jbrogan.netlify.app/.netlify/functions/coldrecipes"
   );
 
   // food for work
 
   await user.hover(screen.getByRole("link", { name: "Meal Types" }));
 
-  fetch.mockResponseOnce(JSON.stringify(mealListData));
+  fetch.mockResponseOnce(JSON.stringify(workMealsTestData));
   await user.click(screen.getByRole("link", { name: "Food for Work" }));
   expect(
     await screen.findByRole("heading", {
-      name: "Turkey Tomato Cheese Pizza",
+      name: "Asparagus and Pea Soup: Real Convenience Food",
     })
   ).toBeVisible();
 
@@ -96,11 +100,11 @@ test("Can select Meal Type options", async () => {
   // Travel / One stop shop
   await user.hover(screen.getByRole("link", { name: "Meal Types" }));
 
-  fetch.mockResponseOnce(JSON.stringify(mealListData));
+  fetch.mockResponseOnce(JSON.stringify(travelResultsTestData));
   await user.click(screen.getByRole("link", { name: "One Stop Shop" }));
   expect(
     await screen.findByRole("heading", {
-      name: "Turkey Tomato Cheese Pizza",
+      name: "Berry Banana Breakfast Smoothie",
     })
   ).toBeVisible();
 

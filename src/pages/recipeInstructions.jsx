@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
-import { PrintButton } from "../components/printbutton";
-import { MyContext } from "../components/instructionsContext";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const RecipeInstructions = ({ setShoppingList }) => {
   const [data, setData] = useState({});

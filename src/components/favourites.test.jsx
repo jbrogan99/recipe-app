@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 describe("favourites", () => {
   test("all recipe information is displayed", () => {
-    const input = favouritesData;
+    const input = favouritesData.favoritesResults[0];
 
     render(
       <BrowserRouter>
@@ -15,21 +15,20 @@ describe("favourites", () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByRole("heading")).toHaveTextContent("Fried Brown Rice");
-    expect(screen.getByText("Ready in: 25 Mins")).toBeVisible();
+    expect(screen.getByRole("heading")).toHaveTextContent("Italian Tuna Pasta");
+    expect(screen.getByText("Ready in: 20 Mins")).toBeVisible();
     expect(screen.getByRole("link", { name: "Recipe" })).toBeVisible();
-    expect(
-      screen.getByRole("img", { name: "vegetarian symbol" })
-    ).toBeVisible();
-    expect(
-      screen.getByRole("img", { name: favouritesData.title })
-    ).toBeVisible();
-    expect(screen.getByText("470.08kcal")).toBeVisible();
+
+    expect(screen.getByRole("img", { name: input.title })).toBeVisible();
+    expect(screen.getByText("463.7kcal")).toBeVisible();
     expect(
       screen.queryByRole("img", { name: "vegan symbol" })
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole("img", { name: "High in protein" })
+      screen.queryByRole("img", { name: "vegetarian symbol" })
     ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: "High in protein" })
+    ).toBeInTheDocument();
   });
 });

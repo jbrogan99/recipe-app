@@ -5,7 +5,6 @@ import cartoon from "../images-real/work.jpg";
 import bubble from "../cartoon-images/bubble-new-min.png";
 import { MealList } from "../components/mealList";
 export const Work = () => {
-  const url = "http://localhost:3001/recipesWork";
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/workrecipes";
 

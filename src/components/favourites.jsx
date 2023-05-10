@@ -9,6 +9,7 @@ import { NewButton } from "./newButton";
 export const Favorites = ({ favoritesData, index }) => {
   const handleDragStart = (e) => e.preventDefault();
 
+  console.log(favoritesData);
   return (
     <>
       <div className="carousel-img-container" data-value={index}>
@@ -50,7 +51,7 @@ export const Favorites = ({ favoritesData, index }) => {
               {favoritesData.nutrition.nutrients[0].amount}
               {favoritesData.nutrition.nutrients[0].unit}
             </p>
-
+            {/*passing id through the route*/}
             <NewButton
               route={`/instructions/${favoritesData.id}`}
               text="Recipe"

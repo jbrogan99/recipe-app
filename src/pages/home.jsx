@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import banner from "../images/green.jpg";
 import { RecipeFinder } from "../components/recipeFinder";
 import beanChilliWrap from "../resized-home-images/bean_and_rice_burrito_33565_16x9.jpg";
 import pork from "../resized-home-images/Crispy-chicken - broccoli-noodles-recipe-1400x919-929996b5-bb25-4f12-9482-732dce513260-0-1400x919.jpg";
@@ -19,17 +18,14 @@ export const Home = ({ setActivePage }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const url = "http://localhost:3001/recipes"; // local server
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/favouriterecipes";
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(netlifyUrl);
-
       if (!response.ok) {
         setErrorMessage(true);
       }
-
       const data = await response.json();
       setFavoritesData(data);
       setIsLoading(false);

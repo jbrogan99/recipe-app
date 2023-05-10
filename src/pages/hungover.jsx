@@ -4,9 +4,6 @@ import { TitleSlogan } from "../components/titleSlogan";
 import cartoon from "../images-real/hungover-man.jpg";
 import { MealList } from "../components/mealList";
 export const Hungover = () => {
-  const arr = [];
-
-  const url = "http://localhost:3001/recipesHungover";
   const netlifyUrl =
     "https://recipe-jbrogan.netlify.app/.netlify/functions/hungoverrecipes";
   const [errorMessage, setErrorMessage] = useState(false);

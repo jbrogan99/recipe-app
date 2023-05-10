@@ -1,5 +1,5 @@
-export const testData = {
-  hungoverResults: [
+export const travelResultsTestData = {
+  travelResults: [
     {
       vegetarian: true,
       vegan: false,
