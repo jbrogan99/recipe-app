@@ -4,10 +4,9 @@ export const Hamburger = ({ setShowResults, showResults }) => {
   return (
     <div className="hamburger-container">
       <img
+        className="hamburger-img"
         src={hamburger}
         alt="hamburger menu"
-        width="80vw"
-        height="60vh"
         onClick={() => setShowResults(!showResults)} /*toggle the results*/
       />
     </div>

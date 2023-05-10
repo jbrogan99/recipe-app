@@ -64,6 +64,11 @@ a {
   padding-bottom: 2em;
 }
 
+.hamburger-img {
+  width: 80vw;
+  height: 60vh;
+}
+
 .nutrition-logo-container {
   color: var(--basic-green);
 
